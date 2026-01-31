@@ -10,7 +10,7 @@ export default function RealObject() {
         <div className={styles.content}>
           <div className={styles.imageWrapper}>
             <img
-              src="/images/house1.jpg"
+              src="/images/house-1.jpg"
               alt="Будинок з клеєного бруса"
               className={styles.image}
             />

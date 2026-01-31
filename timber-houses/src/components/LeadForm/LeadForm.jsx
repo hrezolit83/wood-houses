@@ -1,12 +1,20 @@
 "use client";
 
 import { useState } from "react";
+import toast from "react-hot-toast";
 import Container from "@/components/Container/Container";
+import { isValidPhone } from "@/lib/validation";
 import styles from "./LeadForm.module.css";
 
 export default function LeadForm() {
-  const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    message: "",
+  });
+
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -15,6 +23,13 @@ export default function LeadForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!isValidPhone(form.phone)) {
+      toast.error("Введіть коректний номер телефону");
+      return;
+    }
+
+    setLoading(true);
+
     try {
       const res = await fetch("/api/lead", {
         method: "POST",
@@ -22,13 +37,17 @@ export default function LeadForm() {
         body: JSON.stringify(form),
       });
 
-      if (!res.ok) throw new Error("Помилка відправки");
+      if (!res.ok) {
+        throw new Error("Request failed");
+      }
 
+      toast.success("Заявку успішно відправлено");
       setSubmitted(true);
       setForm({ name: "", phone: "", message: "" });
     } catch (err) {
-      console.error("Lead submission error:", err);
-      alert("Сталася помилка. Спробуйте ще раз.");
+      toast.error("Помилка відправки. Спробуйте пізніше.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -36,6 +55,7 @@ export default function LeadForm() {
     <section className={styles.lead}>
       <Container>
         <h2 className={styles.heading}>Залиште заявку</h2>
+
         {submitted ? (
           <p className={styles.thanks}>
             Дякуємо! Ми зв’яжемось з вами найближчим часом.
@@ -50,6 +70,7 @@ export default function LeadForm() {
               onChange={handleChange}
               required
             />
+
             <input
               type="tel"
               name="phone"
@@ -58,13 +79,17 @@ export default function LeadForm() {
               onChange={handleChange}
               required
             />
+
             <textarea
               name="message"
               placeholder="Повідомлення (не обов'язково)"
               value={form.message}
               onChange={handleChange}
             />
-            <button type="submit">Відправити заявку</button>
+
+            <button type="submit" disabled={loading}>
+              {loading ? "Відправляємо..." : "Відправити заявку"}
+            </button>
           </form>
         )}
       </Container>

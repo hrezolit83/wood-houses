@@ -1,4 +1,5 @@
 import { Inter } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
 const inter = Inter({
@@ -15,7 +16,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="uk" className={inter.variable}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Toaster
+          position="bottom-right"
+          toastOptions={{
+            duration: 3000,
+          }}
+        />
+      </body>
     </html>
   );
 }

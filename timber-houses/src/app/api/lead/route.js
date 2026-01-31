@@ -6,7 +6,7 @@ export async function POST(req) {
     const CHAT_IDS = [
       process.env.TELEGRAM_CHAT_ID_1, // Vitaliy
       process.env.TELEGRAM_CHAT_ID_2, // Vadim
-    ];
+    ].filter(Boolean);
 
     const message = `
   Нова заявка з сайту:
@@ -17,13 +17,27 @@ export async function POST(req) {
 
     // Надсилаємо всім чатам одночасно
     await Promise.all(
-      CHAT_IDS.map((id) =>
-        fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ chat_id: id, text: message }),
-        })
-      )
+      CHAT_IDS.map(async (id) => {
+        const response = await fetch(
+          `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              chat_id: id,
+              text: message,
+            }),
+          }
+        );
+
+        const result = await response.json();
+
+        if (!result.ok) {
+          console.error("Telegram error for chat", id, result);
+        }
+
+        return result;
+      })
     );
 
     return new Response(JSON.stringify({ ok: true }), { status: 200 });

@@ -9,7 +9,9 @@ export default function HomePage() {
       <Hero />
       <USP />
       <RealObject />
-      <LeadForm />
+      <div id="lead">
+        <LeadForm />
+      </div>
     </main>
   );
 }

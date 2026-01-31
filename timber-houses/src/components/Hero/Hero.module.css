@@ -1,71 +1,74 @@
 .hero {
-  padding: 96px 0;
-  background-color: var(--color-bg);
+  padding: 120px 0;
+  background: #fafafa;
 }
 
-.inner {
-  max-width: 720px;
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
 }
 
-.title {
-  font-size: 48px;
+.content h1 {
+  font-size: 52px;
   line-height: 1.1;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  margin-bottom: 24px;
 }
 
-.subtitle {
-  margin-top: 24px;
+.content h1 span {
+  color: #6b4f2a;
+}
+
+.content p {
   font-size: 18px;
   line-height: 1.6;
   color: #555;
+  max-width: 480px;
+  margin-bottom: 32px;
 }
 
-.actions {
-  margin-top: 40px;
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.primary,
-.secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 24px;
-  border-radius: 6px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-
-.primary {
-  background-color: var(--color-accent);
+/* CTA — ЗАЛИШАЄМО ЄДИНИЙ СТИЛЬ */
+.cta {
+  display: inline-block;
+  padding: 16px 32px;
+  background: #6b4f2a;
   color: #fff;
+  border-radius: 40px;
+  font-weight: 500;
 }
 
-.secondary {
-  border: 1px solid #ddd;
-  color: var(--color-text);
+.slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
-/* hover only where it makes sense */
-@media (hover: hover) {
-  .primary:hover {
-    opacity: 0.9;
-  }
-
-  .secondary:hover {
-    background-color: #f5f5f5;
-  }
+.slide {
+  position: absolute;
+  inset: 0;
 }
 
-@media (max-width: 768px) {
-  .hero {
-    padding: 64px 0;
-  }
+.slide img {
+  object-fit: cover;
+}
 
-  .title {
-    font-size: 36px;
+.caption {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  padding: 8px 14px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 14px;
+  border-radius: 12px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
   }
 }
