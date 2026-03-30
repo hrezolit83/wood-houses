@@ -5,7 +5,7 @@ export async function POST(req) {
     const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
     const CHAT_IDS = [
       process.env.TELEGRAM_CHAT_ID_1, // Vitaliy
-      process.env.TELEGRAM_CHAT_ID_2, // Vadim
+      process.env.TELEGRAM_CHAT_ID_2, // Volodymyr
     ].filter(Boolean);
 
     const message = `
@@ -27,7 +27,7 @@ export async function POST(req) {
               chat_id: id,
               text: message,
             }),
-          }
+          },
         );
 
         const result = await response.json();
@@ -37,7 +37,7 @@ export async function POST(req) {
         }
 
         return result;
-      })
+      }),
     );
 
     return new Response(JSON.stringify({ ok: true }), { status: 200 });
