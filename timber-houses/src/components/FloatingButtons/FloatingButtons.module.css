@@ -1,0 +1,43 @@
+.floating {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: var(--transition);
+  pointer-events: none;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition);
+  color: var(--color-white);
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.phoneBtn {
+  background: var(--color-accent);
+}
+
+.phoneBtn:hover {
+  background: var(--color-accent-hover);
+}

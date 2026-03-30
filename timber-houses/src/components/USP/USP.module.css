@@ -1,45 +1,234 @@
 .usp {
-  padding: 96px 0;
-  background-color: var(--color-muted);
+  padding: 100px 0;
+  background-color: var(--color-bg-alt);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-accent);
+  margin-bottom: 16px;
 }
 
 .heading {
-  font-size: 32px;
+  font-family: var(--font-playfair), serif;
+  font-size: 40px;
   font-weight: 600;
-  margin-bottom: 48px;
+  color: var(--color-text);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  align-items: start;
 }
 
 .card {
-  background: #fff;
-  padding: 24px;
-  border-radius: 8px;
+  background: var(--color-white);
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  transition: var(--transition);
+  scroll-margin-top: calc(var(--header-height) + 20px);
+}
+
+.cardOpen {
+  grid-column: 1 / -1;
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-accent);
+}
+
+.cardHeader {
+  position: sticky;
+  top: var(--header-height, 0px);
+  z-index: 2;
+  padding: 36px 32px;
+  cursor: pointer;
+  background: var(--color-white);
+  border-radius: 16px 16px 0 0;
+  border-bottom: 1px solid transparent;
+}
+
+.cardOpen .cardHeader {
+  border-bottom-color: var(--color-border);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(46, 125, 50, 0.08), rgba(46, 125, 50, 0.16));
+  color: var(--color-accent);
+  margin-bottom: 24px;
+  transition: var(--transition);
+}
+
+.card:hover .icon {
+  background: linear-gradient(135deg, rgba(46, 125, 50, 0.12), rgba(46, 125, 50, 0.22));
+  transform: scale(1.05);
 }
 
 .card h3 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+  color: var(--color-text);
 }
 
-.card p {
+.cardText {
   font-size: 15px;
   line-height: 1.6;
-  color: #555;
+  color: var(--color-text-secondary);
 }
 
-@media (max-width: 768px) {
-  .usp {
-    padding: 64px 0;
+.expandBtn {
+  position: absolute;
+  top: 36px;
+  right: 32px;
+  background: rgba(46, 125, 50, 0.08);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-accent);
+  transition: var(--transition);
+}
+
+.expandBtn:hover {
+  background: rgba(46, 125, 50, 0.15);
+}
+
+.expandBtnOpen {
+  transform: rotate(180deg);
+}
+
+/* Expanded content — inline accordion within the card */
+.expandedContent {
+  overflow: hidden;
+  border-radius: 0 0 16px 16px;
+}
+
+.expandedInner {
+  padding: 0 32px 32px;
+  border-top: 1px solid var(--color-border);
+  margin: 0 32px;
+  padding-top: 24px;
+}
+
+.details {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  margin-bottom: 28px;
+}
+
+.features {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.galleryItem {
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 3/2;
+}
+
+.galleryImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.galleryItem:hover .galleryImg {
+  transform: scale(1.05);
+}
+
+.videoWrap {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 16px;
+}
+
+.video {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  background: #000;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
   }
 
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
   .heading {
-    font-size: 26px;
-    margin-bottom: 32px;
+    font-size: 32px;
+  }
+
+  .expandedInner {
+    padding: 24px 0;
+    margin: 0 16px;
+  }
+
+  .cardHeader {
+    padding: 24px 16px;
+  }
+
+  .expandBtn {
+    top: 24px;
+    right: 16px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
   }
 }

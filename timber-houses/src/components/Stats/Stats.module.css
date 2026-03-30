@@ -1,0 +1,40 @@
+.stats {
+  padding: 80px 0;
+  background: var(--color-bg-dark);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.item {
+  text-align: center;
+}
+
+.value {
+  font-family: var(--font-playfair), serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--color-gold);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.label {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 24px;
+  }
+
+  .value {
+    font-size: 36px;
+  }
+}

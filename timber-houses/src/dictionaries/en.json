@@ -1,0 +1,243 @@
+{
+  "meta": {
+    "title": "Glulam Timber Houses Turnkey | Design & Construction",
+    "description": "Design, manufacturing and construction of energy-efficient glulam timber houses across Ukraine."
+  },
+  "header": {
+    "nav": {
+      "advantages": "Advantages",
+      "process": "How We Work",
+      "objects": "Projects",
+      "faq": "FAQ",
+      "contacts": "Contact"
+    },
+    "phone": "Call Us",
+    "cta": "Get a Quote"
+  },
+  "hero": {
+    "label": "In-house glulam timber production",
+    "titleLine1": "We build homes",
+    "titleLine2": "you'll love to live in",
+    "subtitle": "Design, manufacturing and construction of energy-efficient glulam timber houses across Ukraine. From idea to keys — in 5 months.",
+    "cta": "Get a Free Consultation",
+    "ctaOutline": "How We Work",
+    "trust": ["10-Year Warranty", "Own Production", "50+ Projects"],
+    "slides": ["Modern House with Terrace", "Glass Facade Cabin", "Cozy Family House", "Two-Story Lodge", "Winter Timber Cabin", "Resort Cottages"]
+  },
+  "usp": {
+    "label": "Our Advantages",
+    "heading": "Why Clients Choose Us",
+    "items": [
+      {
+        "title": "Own Production",
+        "text": "We control material quality at every stage — from timber drying to beam profiling.",
+        "details": "Our production facility is equipped with modern European machinery. We independently source timber, perform kiln drying to an optimal 12% moisture content, profile beams with 0.1mm precision, and apply antiseptic treatment. Every batch undergoes quality control before shipping to the construction site.",
+        "features": ["Kiln drying to 12% moisture", "0.1mm profiling precision", "Antiseptic treatment", "Quality control for every batch"],
+        "images": ["/images/production/production-warehouse.jpg", "/images/production/production-timber-stacks.jpg", "/images/production/production-closeup.jpg"],
+        "video": "/videos/production-showcase.mp4"
+      },
+      {
+        "title": "Turnkey Construction",
+        "text": "We handle design, production, construction and commissioning — all under one roof.",
+        "details": "You receive a finished home without any hassle. We manage the project from the first meeting to key handover: architectural design, kit manufacturing, foundation, wall and roof assembly, engineering systems, and finishing. One contract, one dedicated manager, transparent pricing.",
+        "features": ["Complete architectural design", "Foundation & assembly", "Engineering systems", "Interior finishing"],
+        "images": ["/images/construction/construction-frame-large.jpg", "/images/construction/construction-workers.jpg", "/images/construction/construction-row.jpg"],
+        "video": "/videos/construction-process.mp4"
+      },
+      {
+        "title": "Real Projects",
+        "text": "We have completed houses you can visit in person or view on video. No renders.",
+        "details": "We have built over 50 houses across Ukraine and Europe. Each project is a real object you can visit and inspect. We don't work with renders — we only show what has already been built. We organize viewings for potential clients.",
+        "features": ["50+ completed projects", "In-person viewing", "Video tours available", "Building across Ukraine & Europe"],
+        "images": ["/images/projects/project-timber-house.jpg", "/images/projects/project-grey-house.jpg", "/images/projects/project-dark-houses.jpg"],
+        "video": "/videos/finished-project.mp4"
+      },
+      {
+        "title": "Expert Team",
+        "text": "Our architects and engineers tailor every project to your site, budget and lifestyle.",
+        "details": "Our team consists of 30+ specialists, each with over 5 years of experience in timber construction. Architects, structural engineers, MEP engineers, and builders work seamlessly at every stage. We continuously learn and implement the latest glulam construction technologies.",
+        "features": ["30+ specialists on the team", "5+ years experience each", "In-house architects", "Continuous professional development"],
+        "images": ["/images/construction/construction-frame-evening.jpg", "/images/construction/construction-frame-winter.jpg", "/images/production/production-delivery.jpg"]
+      }
+    ]
+  },
+  "stats": {
+    "items": [
+      { "value": 50, "suffix": "+", "label": "houses built" },
+      { "value": 8, "suffix": "", "label": "years of experience" },
+      { "value": 5, "suffix": "", "label": "months avg. build time" },
+      { "value": 100, "suffix": "%", "label": "own production" }
+    ]
+  },
+  "process": {
+    "label": "How We Work",
+    "heading": "From idea to finished\nhome in 5 steps",
+    "steps": [
+      { "number": "01", "title": "Consultation", "text": "We discuss your wishes, budget and site specifics. Free of charge." },
+      { "number": "02", "title": "Design", "text": "Our architects create a custom project with a full set of documentation." },
+      { "number": "03", "title": "Production", "text": "We manufacture the house kit at our own facility with strict quality control." },
+      { "number": "04", "title": "Construction", "text": "Our experienced crew assembles the house on your site, turnkey." },
+      { "number": "05", "title": "Handover", "text": "We inspect quality, hand over the keys and provide a warranty on the house." }
+    ]
+  },
+  "realObject": {
+    "label": "Our Real Project",
+    "heading": "A house you can\nvisit in person",
+    "desc": "This glulam timber house was built for a real client. The client received a fully finished home from design to handover. Our own production and experienced team guarantee quality at every stage.",
+    "features": ["Fully finished turnkey", "All engineering systems", "Completed in 5 months", "Available for viewing"],
+    "badgeValue": "120 m²",
+    "badgeLabel": "house area",
+    "cta": "Schedule a Visit"
+  },
+  "faq": {
+    "label": "FAQ",
+    "heading": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "How much does a glulam timber house cost?",
+        "answer": "The cost depends on area, specifications and project complexity. Starting price is from $350/m². We'll prepare an exact estimate after discussing your requirements."
+      },
+      {
+        "question": "What is the construction timeline?",
+        "answer": "The average timeline from design to handover is 4–6 months. On-site assembly takes 2–4 weeks thanks to factory-ready components."
+      },
+      {
+        "question": "Does a timber house need additional insulation?",
+        "answer": "Glulam timber from 180 mm thick provides sufficient insulation for year-round comfortable living. We can add external insulation if needed."
+      },
+      {
+        "question": "What warranty do you provide?",
+        "answer": "Structural warranty — 10 years. Materials from our own production — 25 years. We also warrant all engineering systems."
+      },
+      {
+        "question": "Can I see completed projects?",
+        "answer": "Yes, we arrange visits to our real projects. We also have detailed video tours of every construction stage."
+      },
+      {
+        "question": "Do you build across all of Ukraine?",
+        "answer": "Yes, we build throughout Ukraine. Our own production allows us to deliver a house kit to any region."
+      }
+    ]
+  },
+  "leadForm": {
+    "label": "Get in Touch",
+    "heading": "Get a Free Consultation",
+    "desc": "Leave a request and our manager will contact you within 30 minutes during business hours. We'll calculate the cost and answer all your questions.",
+    "phone": "+38 (000) 000-00-00",
+    "email": "info@timberhouse.ua",
+    "address": "Ukraine, Kyiv",
+    "nameLabel": "Your Name",
+    "namePlaceholder": "Enter your name",
+    "phoneLabel": "Phone",
+    "phonePlaceholder": "+38 (0__) ___-__-__",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Tell us about your project (optional)",
+    "submit": "Send Request",
+    "submitting": "Sending...",
+    "privacy": "By clicking the button, you agree to the processing of personal data",
+    "thanksTitle": "Thank you for your request!",
+    "thanksText": "We'll get back to you shortly.",
+    "errorPhone": "Please enter a valid phone number",
+    "successToast": "Request sent successfully",
+    "errorToast": "Sending failed. Please try again later."
+  },
+  "objects": {
+    "label": "Our Projects",
+    "heading": "Completed Projects",
+    "subtitle": "Every house is a real object, built for real clients. No renders — only facts and quality.",
+    "cta": "Discuss Your Project",
+    "projects": [
+      {
+        "title": "Modern Cottage with Terrace",
+        "location": "Kyiv Region",
+        "area": "120 m²",
+        "time": "4.5 months",
+        "description": "Single-story glulam timber house with a spacious terrace and panoramic windows. Modern design with natural materials.",
+        "image": "/images/projects/project-timber-house.jpg",
+        "features": ["Panoramic windows", "25 m² terrace", "Underfloor heating", "Autonomous heating"]
+      },
+      {
+        "title": "Guest House with Veranda",
+        "location": "Odesa Region",
+        "area": "85 m²",
+        "time": "3 months",
+        "description": "Compact house with decorative painting and a cozy veranda. Perfect solution for a guest or summer house.",
+        "image": "/images/projects/project-grey-house.jpg",
+        "features": ["Decorative painting", "Lattice veranda", "Compact layout", "Efficient heating"]
+      },
+      {
+        "title": "Modern Cabin with Panoramic Glazing",
+        "location": "Zakarpattia Region",
+        "area": "65 m²",
+        "time": "3.5 months",
+        "description": "Stylish mini-house with large panoramic glazing and an open terrace. Modern architecture in a mountain landscape.",
+        "image": "/images/projects/project-modern-cabin.jpg",
+        "features": ["Panoramic glazing", "Open terrace", "Mountain style", "Energy efficiency A+"]
+      },
+      {
+        "title": "Cottage Complex",
+        "location": "Poland",
+        "area": "12 × 75 m²",
+        "time": "8 months",
+        "description": "A complex of 12 identical cottages for a recreational resort. Dark staining, verandas and full autonomy for each house.",
+        "image": "/images/projects/project-dark-houses.jpg",
+        "features": ["12 houses in complex", "Recreational purpose", "Unified architectural style", "Full autonomy"]
+      },
+      {
+        "title": "Two-Story Family Home",
+        "location": "Vinnytsia Region",
+        "area": "180 m²",
+        "time": "5.5 months",
+        "description": "Spacious two-story home for a large family with a balcony and mansard floor. Classic timber construction style.",
+        "image": "/images/projects/project-two-story.jpg",
+        "features": ["2 stories", "Balcony & mansard", "4 bedrooms", "2-car garage"]
+      },
+      {
+        "title": "Compact Homestead",
+        "location": "Lviv Region",
+        "area": "45 m²",
+        "time": "2.5 months",
+        "description": "Small functional house for a dacha or guest use. Full set of amenities in a compact format.",
+        "image": "/images/projects/project-small-cabin.jpg",
+        "features": ["Compact format", "Full bathroom", "Mini kitchen", "Budget-friendly"]
+      }
+    ],
+    "construction": {
+      "label": "Construction Process",
+      "heading": "How Our Houses Are Born",
+      "images": [
+        { "src": "/images/construction/construction-frame-large.jpg", "caption": "Large cottage frame assembly" },
+        { "src": "/images/construction/construction-workers.jpg", "caption": "Team installing the roof" },
+        { "src": "/images/construction/construction-row.jpg", "caption": "Serial construction of complex" },
+        { "src": "/images/construction/construction-frame-winter.jpg", "caption": "Winter construction" },
+        { "src": "/images/construction/construction-frame-evening.jpg", "caption": "Evening shift on site" }
+      ]
+    },
+    "production": {
+      "label": "Our Production",
+      "heading": "From Timber to Ready Kit",
+      "images": [
+        { "src": "/images/production/production-warehouse.jpg", "caption": "Ready kit warehouse" },
+        { "src": "/images/production/production-timber-stacks.jpg", "caption": "Profiled timber beams" },
+        { "src": "/images/production/production-closeup.jpg", "caption": "Joint quality" },
+        { "src": "/images/production/production-delivery.jpg", "caption": "Kit delivery to site" },
+        { "src": "/images/production/production-planks.jpg", "caption": "Production workshop" }
+      ]
+    },
+    "videos": {
+      "label": "Videos",
+      "heading": "Watch Live",
+      "items": [
+        { "src": "/videos/production-showcase.mp4", "title": "Timber Production" },
+        { "src": "/videos/construction-process.mp4", "title": "Construction Process" },
+        { "src": "/videos/finished-project.mp4", "title": "Finished Project" }
+      ]
+    }
+  },
+  "footer": {
+    "desc": "Design, manufacturing and construction of glulam timber houses across Ukraine.",
+    "navTitle": "Navigation",
+    "contactsTitle": "Contacts",
+    "copyright": "TimberHouse. All rights reserved."
+  }
+}
