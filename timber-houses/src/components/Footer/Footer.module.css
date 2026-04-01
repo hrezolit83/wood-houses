@@ -65,7 +65,32 @@
 
 @media (max-width: 768px) {
   .grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: 32px;
+  }
+
+  .brand {
+    width: 100%;
+    text-align: center;
+    order: -1;
+  }
+
+  .brand .desc {
+    margin: 0 auto;
+  }
+
+  .brand .logo {
+    justify-content: center;
+  }
+
+  .col {
+    flex: none;
+    text-align: left;
+  }
+
+  .grid {
+    justify-content: center;
+    gap: 32px 48px;
   }
 }

@@ -127,4 +127,14 @@
   .features {
     grid-template-columns: 1fr;
   }
+
+  .cta {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    display: flex;
+    margin: 0 auto;
+  }
 }
