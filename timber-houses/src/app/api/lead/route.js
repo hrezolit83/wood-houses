@@ -76,15 +76,25 @@ export async function POST(req) {
       }),
     );
 
-    const delivered = results.some((r) => r.ok);
+    const delivered = results.filter((r) => r.ok);
+    const failed = results.filter((r) => !r.ok);
 
-    if (!delivered) {
-      const failed = results.map((r) => r.description).join("; ");
+    if (failed.length > 0) {
+      const failedDetails = failed
+        .map((r) => `${r.description} (код: ${r.error_code || "?"})`)
+        .join("\n");
+      const status =
+        delivered.length === 0
+          ? `Заявку НЕ доставлено нікому!`
+          : `Заявку доставлено ${delivered.length}/${results.length} учасникам`;
       await notifyError(
         BOT_TOKEN,
         ADMIN_CHAT,
-        `Заявку не доставлено жодному учаснику.\nДані: ${name}, ${phone}\nПомилки: ${failed}`,
+        `${status}\nДані: ${name}, ${phone}\nПомилки:\n${failedDetails}\n\nПорада: учасники мають натиснути /start у чаті з ботом`,
       );
+    }
+
+    if (delivered.length === 0) {
       return new Response(
         JSON.stringify({ error: "Не вдалося надіслати повідомлення" }),
         { status: 502 },
