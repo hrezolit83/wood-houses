@@ -34,6 +34,22 @@
   transform: scale(1.1);
 }
 
+.telegramBtn {
+  background: #2AABEE;
+}
+
+.telegramBtn:hover {
+  background: #229ED9;
+}
+
+.viberBtn {
+  background: #7360F2;
+}
+
+.viberBtn:hover {
+  background: #5F4BD1;
+}
+
 .phoneBtn {
   background: var(--color-accent);
 }
