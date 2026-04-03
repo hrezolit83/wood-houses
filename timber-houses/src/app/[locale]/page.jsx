@@ -4,6 +4,7 @@ import Hero from "@/components/Hero/Hero";
 import USP from "@/components/USP/USP";
 import Stats from "@/components/Stats/Stats";
 import Process from "@/components/Process/Process";
+import Calculator from "@/components/Calculator/Calculator";
 import RealObject from "@/components/RealObject/RealObject";
 import FAQ from "@/components/FAQ/FAQ";
 import LeadForm from "@/components/LeadForm/LeadForm";
@@ -22,6 +23,7 @@ export default async function HomePage({ params }) {
         <USP t={t.usp} />
         <Stats t={t.stats} />
         <Process t={t.process} />
+        <Calculator t={t.calculator} />
         <RealObject t={t.realObject} />
         <FAQ t={t.faq} />
         <LeadForm t={t.leadForm} />

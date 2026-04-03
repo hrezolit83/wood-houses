@@ -7,6 +7,7 @@
     "nav": {
       "advantages": "Advantages",
       "process": "How We Work",
+      "calculator": "Calculator",
       "objects": "Projects",
       "faq": "FAQ",
       "contacts": "Contact"
@@ -79,6 +80,34 @@
       { "number": "04", "title": "Construction", "text": "Our experienced crew assembles the house on your site, turnkey." },
       { "number": "05", "title": "Handover", "text": "We inspect quality, hand over the keys and provide a warranty on the house." }
     ]
+  },
+  "calculator": {
+    "label": "Cost Calculator",
+    "heading": "Calculate the cost\nof your home",
+    "desc": "Get an estimated cost for your glulam timber house. Exact quote — after a free consultation.",
+    "areaLabel": "House Area",
+    "areaUnit": "m²",
+    "floorsLabel": "Number of Floors",
+    "floors": ["1 floor", "2 floors"],
+    "timberLabel": "Timber Thickness",
+    "timberOptions": [
+      { "value": "180", "label": "180 mm", "desc": "Standard" },
+      { "value": "200", "label": "200 mm", "desc": "Enhanced" },
+      { "value": "240", "label": "240 mm", "desc": "Premium" }
+    ],
+    "packageLabel": "Package",
+    "packages": [
+      { "value": "kit", "label": "House Kit", "desc": "Walls, floors, roofing" },
+      { "value": "shell", "label": "Shell", "desc": "Kit + foundation + assembly" },
+      { "value": "turnkey", "label": "Turnkey", "desc": "Fully finished home" }
+    ],
+    "resultLabel": "Estimated Cost",
+    "resultFrom": "from",
+    "resultCurrency": "$",
+    "resultPerM2": "per m²",
+    "resultNote": "Price is approximate. Exact calculation after consultation.",
+    "cta": "Get an Exact Quote",
+    "pricePerM2Label": "Price per m²"
   },
   "realObject": {
     "label": "Our Real Project",

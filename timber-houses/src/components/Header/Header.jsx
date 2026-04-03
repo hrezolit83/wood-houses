@@ -8,6 +8,7 @@ import styles from "./Header.module.css";
 const navItems = [
   { key: "advantages", href: "#advantages" },
   { key: "process", href: "#process" },
+  { key: "calculator", href: "#calculator" },
   { key: "objects", href: "/objects", isPage: true },
   { key: "faq", href: "#faq" },
   { key: "contacts", href: "#lead" },
