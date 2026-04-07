@@ -9,6 +9,7 @@
       "process": "How We Work",
       "calculator": "Calculator",
       "objects": "Projects",
+      "blog": "Blog",
       "faq": "FAQ",
       "contacts": "Contact"
     },
@@ -263,10 +264,28 @@
       ]
     }
   },
+  "blog": {
+    "metaTitle": "Blog | TimberHouse — Articles About Glulam Timber Construction",
+    "metaDescription": "Useful articles about timber house construction: technology comparison, costs, construction stages and tips.",
+    "heading": "Blog",
+    "subtitle": "Useful articles about glulam timber house construction",
+    "readMore": "Read more",
+    "back": "Back to Blog",
+    "cta": "Get a Consultation",
+    "ctaText": "Have questions about construction? Contact us for a free consultation."
+  },
   "footer": {
     "desc": "Design, manufacturing and construction of glulam timber houses across Ukraine.",
     "navTitle": "Navigation",
+    "navLinks": {
+      "advantages": "Advantages",
+      "process": "How We Work",
+      "objects": "Projects",
+      "blog": "Blog",
+      "faq": "FAQ"
+    },
     "contactsTitle": "Contacts",
+    "address": "Ukraine, Kyiv",
     "copyright": "TimberHouse. All rights reserved."
   }
 }

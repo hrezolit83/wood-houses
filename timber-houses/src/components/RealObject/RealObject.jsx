@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Container from "@/components/Container/Container";
 import styles from "./RealObject.module.css";
 
@@ -9,10 +10,13 @@ export default function RealObject({ t }) {
       <Container>
         <div className={styles.grid}>
           <div className={styles.imageWrapper}>
-            <img
+            <Image
               src="/images/house-1.jpg"
               alt={t.heading}
+              width={800}
+              height={600}
               className={styles.image}
+              sizes="(max-width: 900px) 100vw, 50vw"
             />
             <div className={styles.badge}>
               <span className={styles.badgeValue}>{t.badgeValue}</span>

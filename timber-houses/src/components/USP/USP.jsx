@@ -72,6 +72,10 @@ export default function USP({ t }) {
                 <div
                   className={styles.cardHeader}
                   onClick={() => toggle(i)}
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(i); } }}
+                  role="button"
+                  tabIndex={0}
+                  aria-expanded={isOpen}
                 >
                   <div className={styles.icon}>{icons[i]}</div>
                   <h3>{item.title}</h3>

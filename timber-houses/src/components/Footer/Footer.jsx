@@ -2,13 +2,6 @@ import Container from "@/components/Container/Container";
 import styles from "./Footer.module.css";
 
 export default function Footer({ t, locale }) {
-  const navLinks = {
-    advantages: locale === "uk" ? "Переваги" : "Advantages",
-    process: locale === "uk" ? "Як працюємо" : "How We Work",
-    objects: locale === "uk" ? "Об'єкти" : "Projects",
-    faq: locale === "uk" ? "Питання" : "FAQ",
-  };
-
   return (
     <footer className={styles.footer}>
       <Container>
@@ -28,18 +21,22 @@ export default function Footer({ t, locale }) {
 
           <div className={styles.col}>
             <h4>{t.navTitle}</h4>
-            {Object.entries(navLinks).map(([key, label]) => (
-              <a key={key} href={`#${key}`}>
-                {label}
-              </a>
-            ))}
+            {Object.entries(t.navLinks).map(([key, label]) => {
+              const isPage = key === "objects" || key === "blog";
+              const href = isPage ? `/${locale}/${key}` : `/${locale}#${key}`;
+              return (
+                <a key={key} href={href}>
+                  {label}
+                </a>
+              );
+            })}
           </div>
 
           <div className={styles.col}>
             <h4>{t.contactsTitle}</h4>
             <a href="tel:+380000000000">+38 (000) 000-00-00</a>
             <a href="mailto:info@timberhouse.ua">info@timberhouse.ua</a>
-            <p>{locale === "uk" ? "Україна, м. Київ" : "Ukraine, Kyiv"}</p>
+            <p>{t.address}</p>
           </div>
         </div>
 

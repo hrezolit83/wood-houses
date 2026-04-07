@@ -10,6 +10,7 @@ const navItems = [
   { key: "process", href: "#process" },
   { key: "calculator", href: "#calculator" },
   { key: "objects", href: "/objects", isPage: true },
+  { key: "blog", href: "/blog", isPage: true },
   { key: "faq", href: "#faq" },
   { key: "contacts", href: "#lead" },
 ];

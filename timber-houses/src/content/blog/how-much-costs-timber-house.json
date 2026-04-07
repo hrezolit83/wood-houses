@@ -1,0 +1,108 @@
+{
+  "slug": "how-much-costs-timber-house",
+  "date": "2026-03-25",
+  "image": "/images/projects/project-two-story.jpg",
+  "readTime": { "uk": "6 хв", "en": "6 min" },
+  "title": {
+    "uk": "Скільки коштує будинок з клеєного бруса у 2026 році?",
+    "en": "How Much Does a Glulam Timber House Cost in 2026?"
+  },
+  "excerpt": {
+    "uk": "Розбираємо з чого складається вартість будинку: матеріали, фундамент, монтаж, інженерія та оздоблення.",
+    "en": "Breaking down the cost of a timber house: materials, foundation, assembly, engineering and finishing."
+  },
+  "content": {
+    "uk": [
+      {
+        "type": "paragraph",
+        "text": "Одне з найпоширеніших питань, яке ми отримуємо — «Скільки коштує побудувати будинок з клеєного бруса?». Відповідь залежить від багатьох факторів, але ми дамо чіткі орієнтири."
+      },
+      {
+        "type": "heading",
+        "text": "З чого складається вартість"
+      },
+      {
+        "type": "paragraph",
+        "text": "Вартість будинку з клеєного бруса включає кілька основних складових: проєктування (5-8% від загальної суми), домокомплект — стіни, перекриття, покрівля (35-40%), фундамент (10-15%), монтаж та збірка (15-20%), інженерні системи — опалення, водопостачання, електрика (10-15%), внутрішнє оздоблення (10-15%)."
+      },
+      {
+        "type": "heading",
+        "text": "Орієнтовні ціни за м²"
+      },
+      {
+        "type": "paragraph",
+        "text": "Домокомплект (лише матеріал): від $250/м². Коробка під дах (з фундаментом та монтажем): від $450/м². Будинок під ключ (повністю готовий): від $650/м². Ці ціни актуальні для бруса товщиною 180 мм. При товщині 200-240 мм вартість зростає на 10-25%."
+      },
+      {
+        "type": "heading",
+        "text": "Що впливає на фінальну ціну"
+      },
+      {
+        "type": "paragraph",
+        "text": "Площа будинку — чим більша площа, тим нижча ціна за м² за рахунок масштабу. Кількість поверхів — двоповерховий будинок дешевший за одноповерховий тієї ж площі (менший фундамент і покрівля). Товщина бруса — 180 мм, 200 мм або 240 мм. Складність проєкту — нестандартні форми, еркери, великі прольоти збільшують вартість."
+      },
+      {
+        "type": "heading",
+        "text": "Приклад розрахунку"
+      },
+      {
+        "type": "paragraph",
+        "text": "Одноповерховий будинок 120 м² з бруса 200 мм під ключ: проєктування — $3 500, домокомплект — $42 000, фундамент — $12 000, монтаж — $15 000, інженерія — $11 000, оздоблення — $10 000. Разом: близько $93 500, або ~$780/м²."
+      },
+      {
+        "type": "heading",
+        "text": "Як заощадити без втрати якості"
+      },
+      {
+        "type": "paragraph",
+        "text": "Оберіть оптимальну площу — не переплачуйте за зайві метри. Розгляньте двоповерховий варіант замість одноповерхового. Замовте все в одній компанії «під ключ» — це дешевше, ніж наймати підрядників окремо. Використовуйте калькулятор на нашому сайті для попереднього розрахунку."
+      }
+    ],
+    "en": [
+      {
+        "type": "paragraph",
+        "text": "One of the most common questions we receive is 'How much does it cost to build a glulam timber house?' The answer depends on many factors, but we'll give you clear benchmarks."
+      },
+      {
+        "type": "heading",
+        "text": "What Makes Up the Cost"
+      },
+      {
+        "type": "paragraph",
+        "text": "The cost of a glulam timber house includes several main components: design (5-8% of total), house kit — walls, floors, roof (35-40%), foundation (10-15%), assembly and installation (15-20%), engineering systems — heating, plumbing, electrical (10-15%), interior finishing (10-15%)."
+      },
+      {
+        "type": "heading",
+        "text": "Approximate Prices per m²"
+      },
+      {
+        "type": "paragraph",
+        "text": "House kit (material only): from $250/m². Shell (with foundation and assembly): from $450/m². Turnkey (fully finished): from $650/m². These prices are for 180mm timber. For 200-240mm thickness, costs increase by 10-25%."
+      },
+      {
+        "type": "heading",
+        "text": "What Affects the Final Price"
+      },
+      {
+        "type": "paragraph",
+        "text": "House area — the larger the area, the lower the price per m² due to economies of scale. Number of floors — a two-story house is cheaper than a single-story of the same area (smaller foundation and roof). Timber thickness — 180mm, 200mm or 240mm. Project complexity — non-standard shapes, bay windows, large spans increase costs."
+      },
+      {
+        "type": "heading",
+        "text": "Example Calculation"
+      },
+      {
+        "type": "paragraph",
+        "text": "Single-story 120m² house with 200mm timber, turnkey: design — $3,500, house kit — $42,000, foundation — $12,000, assembly — $15,000, engineering — $11,000, finishing — $10,000. Total: approximately $93,500, or ~$780/m²."
+      },
+      {
+        "type": "heading",
+        "text": "How to Save Without Sacrificing Quality"
+      },
+      {
+        "type": "paragraph",
+        "text": "Choose optimal area — don't overpay for unnecessary square meters. Consider a two-story option instead of single-story. Order everything turnkey from one company — it's cheaper than hiring separate contractors. Use the calculator on our website for preliminary estimates."
+      }
+    ]
+  }
+}

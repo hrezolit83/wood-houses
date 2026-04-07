@@ -21,7 +21,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  gap: 24px;
 }
 
 .logo {
@@ -42,11 +42,11 @@
 .nav {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
 }
 
 .navLink {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--color-text-secondary);
   transition: var(--transition);

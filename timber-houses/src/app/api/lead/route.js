@@ -1,3 +1,35 @@
+// Simple in-memory rate limiter
+const rateLimit = new Map();
+const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
+const RATE_LIMIT_MAX = 3; // max requests per window per IP
+
+function checkRateLimit(ip) {
+  const now = Date.now();
+  const record = rateLimit.get(ip);
+
+  if (!record || now - record.start > RATE_LIMIT_WINDOW) {
+    rateLimit.set(ip, { start: now, count: 1 });
+    return true;
+  }
+
+  if (record.count >= RATE_LIMIT_MAX) return false;
+  record.count++;
+  return true;
+}
+
+// Cleanup old entries periodically
+setInterval(() => {
+  const now = Date.now();
+  for (const [ip, record] of rateLimit) {
+    if (now - record.start > RATE_LIMIT_WINDOW) rateLimit.delete(ip);
+  }
+}, RATE_LIMIT_WINDOW);
+
+function sanitize(str) {
+  if (typeof str !== "string") return "";
+  return str.replace(/[<>&]/g, "").trim();
+}
+
 async function notifyError(botToken, chatId, errorText) {
   try {
     await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
@@ -14,18 +46,35 @@ async function notifyError(botToken, chatId, errorText) {
 }
 
 export async function POST(req) {
+  // Rate limiting
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+  if (!checkRateLimit(ip)) {
+    return new Response(
+      JSON.stringify({ error: "Забагато запитів. Спробуйте пізніше." }),
+      { status: 429, headers: { "Retry-After": "60" } },
+    );
+  }
+
   const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
   const ADMIN_CHAT = process.env.TELEGRAM_CHAT_ID_1;
 
   try {
     const data = await req.json();
 
-    const name = data.name?.trim();
-    const phone = data.phone?.trim();
+    const name = sanitize(data.name);
+    const phone = sanitize(data.phone);
+    const message = sanitize(data.message).slice(0, 1000);
 
-    if (!name || !phone) {
+    if (!name || name.length > 100) {
       return new Response(
-        JSON.stringify({ error: "Ім'я та телефон обов'язкові" }),
+        JSON.stringify({ error: "Невалідне ім'я" }),
+        { status: 400 },
+      );
+    }
+
+    if (!phone || !/^\+?[0-9\s\-()]{10,20}$/.test(phone)) {
+      return new Response(
+        JSON.stringify({ error: "Невалідний номер телефону" }),
         { status: 400 },
       );
     }
@@ -45,11 +94,11 @@ export async function POST(req) {
       );
     }
 
-    const message =
+    const telegramText =
       `Нова заявка з сайту:\n` +
       `Ім'я: ${name}\n` +
       `Телефон: ${phone}\n` +
-      `Повідомлення: ${data.message?.trim() || "—"}`;
+      `Повідомлення: ${message || "—"}`;
 
     // Надсилаємо всім чатам одночасно
     const results = await Promise.all(
@@ -61,7 +110,7 @@ export async function POST(req) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               chat_id: id,
-              text: message,
+              text: telegramText,
             }),
           },
         );
