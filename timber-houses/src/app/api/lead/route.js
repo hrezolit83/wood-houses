@@ -80,10 +80,12 @@ export async function POST(req) {
     }
 
     const CHAT_IDS = [
-      process.env.TELEGRAM_CHAT_ID_1, // Vitaliy
-      process.env.TELEGRAM_CHAT_ID_2, // Volodymyr
-      process.env.TELEGRAM_CHAT_ID_3, // Vadym
+      process.env.TELEGRAM_CHAT_ID_1,
+      process.env.TELEGRAM_CHAT_ID_2,
+      process.env.TELEGRAM_CHAT_ID_3,
     ].filter(Boolean);
+
+    console.log("[lead] Sending to chat IDs:", CHAT_IDS);
 
     if (!BOT_TOKEN || CHAT_IDS.length === 0) {
       const err = "Telegram not configured: missing BOT_TOKEN or CHAT_IDS";
@@ -117,9 +119,7 @@ export async function POST(req) {
 
         const result = await response.json();
 
-        if (!result.ok) {
-          console.error("Telegram error for chat", id, result);
-        }
+        console.log(`[lead] Chat ${id}:`, result.ok ? "OK" : result);
 
         return result;
       }),
