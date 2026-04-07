@@ -34,7 +34,8 @@ export default function Footer({ t, locale }) {
 
           <div className={styles.col}>
             <h4>{t.contactsTitle}</h4>
-            <a href="tel:+380000000000">+38 (000) 000-00-00</a>
+            <a href="tel:+380636485920">+38 (063) 648-59-20</a>
+            <a href="tel:+380993258334">+38 (099) 325-83-34</a>
             <a href="mailto:info@timberhouse.ua">info@timberhouse.ua</a>
             <p>{t.address}</p>
           </div>

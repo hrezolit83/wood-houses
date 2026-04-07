@@ -26,7 +26,7 @@ export default function FloatingButtons() {
         </svg>
       </a>
       <a
-        href="viber://chat?number=%2B380000000000"
+        href="viber://chat?number=%2B380636485920"
         className={`${styles.btn} ${styles.viberBtn}`}
         aria-label="Viber"
       >
@@ -35,7 +35,7 @@ export default function FloatingButtons() {
         </svg>
       </a>
       <a
-        href="tel:+380000000000"
+        href="tel:+380636485920"
         className={`${styles.btn} ${styles.phoneBtn}`}
         aria-label="Зателефонувати"
       >
