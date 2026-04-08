@@ -2,6 +2,8 @@ import { locales } from "@/lib/dictionaries";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://timberhouse.biz";
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
