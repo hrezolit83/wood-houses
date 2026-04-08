@@ -5,7 +5,7 @@ import Footer from "@/components/Footer/Footer";
 import FloatingButtons from "@/components/FloatingButtons/FloatingButtons";
 import BlogList from "@/components/Blog/BlogList";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://timberhouse.ua";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://timberhouse.biz";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));

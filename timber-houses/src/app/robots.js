@@ -1,5 +1,5 @@
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://timberhouse.ua";
-const isProduction = BASE_URL.includes("timberhouse.ua");
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://timberhouse.biz";
+const isProduction = BASE_URL.includes("timberhouse.biz");
 
 export default function robots() {
   if (!isProduction) {

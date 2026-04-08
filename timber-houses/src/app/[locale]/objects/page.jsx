@@ -5,7 +5,7 @@ import LeadForm from "@/components/LeadForm/LeadForm";
 import Footer from "@/components/Footer/Footer";
 import FloatingButtons from "@/components/FloatingButtons/FloatingButtons";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://timberhouse.ua";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://timberhouse.biz";
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;

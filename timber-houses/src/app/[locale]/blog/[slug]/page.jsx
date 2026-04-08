@@ -6,7 +6,7 @@ import Footer from "@/components/Footer/Footer";
 import FloatingButtons from "@/components/FloatingButtons/FloatingButtons";
 import BlogArticle from "@/components/Blog/BlogArticle";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://timberhouse.ua";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://timberhouse.biz";
 
 export async function generateStaticParams() {
   const slugs = getAllSlugs();

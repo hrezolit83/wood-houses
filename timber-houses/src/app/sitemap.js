@@ -1,7 +1,7 @@
 import { getAllSlugs } from "@/lib/blog";
 import { locales } from "@/lib/dictionaries";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://timberhouse.ua";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://timberhouse.biz";
 
 export default function sitemap() {
   const routes = [];

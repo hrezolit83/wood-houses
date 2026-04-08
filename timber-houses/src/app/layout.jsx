@@ -2,8 +2,8 @@ import { Inter, Playfair_Display } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://timberhouse.ua";
-const isProduction = BASE_URL.includes("timberhouse.ua");
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://timberhouse.biz";
+const isProduction = BASE_URL.includes("timberhouse.biz");
 
 export const metadata = isProduction
   ? {}
