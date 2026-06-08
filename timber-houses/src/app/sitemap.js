@@ -31,6 +31,14 @@ export default function sitemap() {
       priority: 0.8,
     });
 
+    // Privacy Policy
+    routes.push({
+      url: `${BASE_URL}/${locale}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    });
+
     // Blog posts
     const slugs = getAllSlugs();
     for (const slug of slugs) {

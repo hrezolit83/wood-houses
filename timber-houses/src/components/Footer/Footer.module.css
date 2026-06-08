@@ -6,7 +6,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 48px;
   padding-bottom: 48px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -65,15 +65,15 @@
 
 @media (max-width: 768px) {
   .grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    gap: 32px 48px;
   }
 
   .brand {
-    width: 100%;
+    grid-column: 1 / -1;
     text-align: center;
-    order: -1;
   }
 
   .brand .desc {
@@ -85,12 +85,11 @@
   }
 
   .col {
-    flex: none;
     text-align: left;
   }
 
-  .grid {
-    justify-content: center;
-    gap: 32px 48px;
+  .legalCol {
+    grid-column: 1 / -1;
+    justify-self: start;
   }
 }

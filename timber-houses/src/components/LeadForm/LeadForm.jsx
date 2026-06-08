@@ -4,6 +4,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import Container from "@/components/Container/Container";
 import { isValidPhone } from "@/lib/validation";
+import { trackLead } from "@/lib/analytics";
 import styles from "./LeadForm.module.css";
 
 export default function LeadForm({ t }) {
@@ -42,6 +43,7 @@ export default function LeadForm({ t }) {
       }
 
       toast.success(t.successToast);
+      trackLead("lead_form");
       setSubmitted(true);
       setForm({ name: "", phone: "", message: "" });
     } catch (err) {

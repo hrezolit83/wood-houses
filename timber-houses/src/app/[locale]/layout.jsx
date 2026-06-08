@@ -1,4 +1,5 @@
 import { locales } from "@/lib/dictionaries";
+import CookieConsent from "@/components/CookieConsent/CookieConsent";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://timberhouse.biz";
 
@@ -47,6 +48,7 @@ export default async function LocaleLayout({ children, params }) {
   return (
     <div lang={locale} data-locale={locale}>
       {children}
+      <CookieConsent locale={locale} />
     </div>
   );
 }

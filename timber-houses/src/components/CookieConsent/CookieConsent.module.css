@@ -1,0 +1,144 @@
+.banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 9999;
+  background: var(--color-bg-dark, #1a1a1a);
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  animation: slideUp 0.35s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+}
+
+.title {
+  font-family: var(--font-playfair), serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 6px;
+  color: #fff;
+}
+
+.text {
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.link {
+  color: var(--color-gold, #c8a865);
+  text-decoration: underline;
+}
+
+.settings {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+}
+
+.row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+}
+
+.row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-gold, #c8a865);
+  cursor: pointer;
+}
+
+.row input[disabled] {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.btnGhost,
+.btnPrimary {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition, all 0.2s ease);
+  white-space: nowrap;
+}
+
+.btnGhost {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btnGhost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.btnPrimary {
+  background: var(--color-gold, #c8a865);
+  color: #1a1a1a;
+}
+
+.btnPrimary:hover {
+  filter: brightness(1.08);
+}
+
+@media (max-width: 880px) {
+  .banner {
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+  }
+
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 18px 18px;
+  }
+
+  .actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .actions button {
+    flex: 1 1 auto;
+  }
+}

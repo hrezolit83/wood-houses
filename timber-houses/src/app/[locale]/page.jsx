@@ -10,6 +10,11 @@ import FAQ from "@/components/FAQ/FAQ";
 import LeadForm from "@/components/LeadForm/LeadForm";
 import Footer from "@/components/Footer/Footer";
 import FloatingButtons from "@/components/FloatingButtons/FloatingButtons";
+import {
+  LocalBusinessJsonLd,
+  FAQPageJsonLd,
+  WebSiteJsonLd,
+} from "@/components/JsonLd/JsonLd";
 
 export default async function HomePage({ params }) {
   const { locale } = await params;
@@ -17,6 +22,9 @@ export default async function HomePage({ params }) {
 
   return (
     <>
+      <LocalBusinessJsonLd locale={locale} />
+      <WebSiteJsonLd locale={locale} />
+      <FAQPageJsonLd items={t.faq?.items} />
       <Header t={t.header} locale={locale} />
       <main>
         <Hero t={t.hero} />

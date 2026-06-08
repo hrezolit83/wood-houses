@@ -1,4 +1,7 @@
+"use client";
+
 import Container from "@/components/Container/Container";
+import { trackPhoneClick, trackEmailClick } from "@/lib/analytics";
 import styles from "./Footer.module.css";
 
 export default function Footer({ t, locale }) {
@@ -34,11 +37,22 @@ export default function Footer({ t, locale }) {
 
           <div className={styles.col}>
             <h4>{t.contactsTitle}</h4>
-            <a href="tel:+380636485920">+38 (063) 648-59-20</a>
-            <a href="tel:+380993258334">+38 (099) 325-83-34</a>
-            <a href="mailto:info@timberhouse.biz">info@timberhouse.biz</a>
+            <a href="tel:+380636485920" onClick={() => trackPhoneClick("footer")}>+38 (063) 648-59-20</a>
+            <a href="tel:+380993258334" onClick={() => trackPhoneClick("footer")}>+38 (099) 325-83-34</a>
+            <a href="mailto:info@timberhouse.biz" onClick={() => trackEmailClick("footer")}>info@timberhouse.biz</a>
             <p>{t.address}</p>
           </div>
+
+          {t.legalLinks && (
+            <div className={`${styles.col} ${styles.legalCol}`}>
+              <h4>{t.legalTitle}</h4>
+              {Object.entries(t.legalLinks).map(([key, label]) => (
+                <a key={key} href={`/${locale}/${key}`}>
+                  {label}
+                </a>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className={styles.bottom}>

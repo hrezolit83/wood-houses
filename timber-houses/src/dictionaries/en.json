@@ -23,8 +23,19 @@
     "subtitle": "Design, manufacturing and construction of energy-efficient glulam timber houses across Ukraine. From idea to keys — in 5 months.",
     "cta": "Get a Free Consultation",
     "ctaOutline": "How We Work",
-    "trust": ["10-Year Warranty", "Own Production", "50+ Projects"],
-    "slides": ["Modern House with Terrace", "Glass Facade Cabin", "Cozy Family House", "Two-Story Lodge", "Winter Timber Cabin", "Resort Cottages"]
+    "trust": [
+      "10-Year Warranty",
+      "Own Production",
+      "50+ Projects"
+    ],
+    "slides": [
+      "Modern House with Terrace",
+      "Glass Facade Cabin",
+      "Cozy Family House",
+      "Two-Story Lodge",
+      "Winter Timber Cabin",
+      "Resort Cottages"
+    ]
   },
   "usp": {
     "label": "Our Advantages",
@@ -34,52 +45,124 @@
         "title": "Own Production",
         "text": "We control material quality at every stage — from timber drying to beam profiling.",
         "details": "Our production facility is equipped with modern European machinery. We independently source timber, perform kiln drying to an optimal 12% moisture content, profile beams with 0.1mm precision, and apply antiseptic treatment. Every batch undergoes quality control before shipping to the construction site.",
-        "features": ["Kiln drying to 12% moisture", "0.1mm profiling precision", "Antiseptic treatment", "Quality control for every batch"],
-        "images": ["/images/production/production-warehouse.jpg", "/images/production/production-timber-stacks.jpg", "/images/production/production-closeup.jpg"],
+        "features": [
+          "Kiln drying to 12% moisture",
+          "0.1mm profiling precision",
+          "Antiseptic treatment",
+          "Quality control for every batch"
+        ],
+        "images": [
+          "/images/production/production-warehouse.jpg",
+          "/images/production/production-timber-stacks.jpg",
+          "/images/production/production-closeup.jpg"
+        ],
         "video": "/videos/production-showcase.mp4"
       },
       {
         "title": "Turnkey Construction",
         "text": "We handle design, production, construction and commissioning — all under one roof.",
         "details": "You receive a finished home without any hassle. We manage the project from the first meeting to key handover: architectural design, kit manufacturing, foundation, wall and roof assembly, engineering systems, and finishing. One contract, one dedicated manager, transparent pricing.",
-        "features": ["Complete architectural design", "Foundation & assembly", "Engineering systems", "Interior finishing"],
-        "images": ["/images/construction/construction-frame-large.jpg", "/images/construction/construction-workers.jpg", "/images/construction/construction-row.jpg"],
+        "features": [
+          "Complete architectural design",
+          "Foundation & assembly",
+          "Engineering systems",
+          "Interior finishing"
+        ],
+        "images": [
+          "/images/construction/construction-frame-large.jpg",
+          "/images/construction/construction-workers.jpg",
+          "/images/construction/construction-row.jpg"
+        ],
         "video": "/videos/construction-process.mp4"
       },
       {
         "title": "Real Projects",
         "text": "We have completed houses you can visit in person or view on video. No renders.",
         "details": "We have built over 50 houses across Ukraine and Europe. Each project is a real object you can visit and inspect. We don't work with renders — we only show what has already been built. We organize viewings for potential clients.",
-        "features": ["50+ completed projects", "In-person viewing", "Video tours available", "Building across Ukraine & Europe"],
-        "images": ["/images/projects/project-timber-house.jpg", "/images/projects/project-grey-house.jpg", "/images/projects/project-dark-houses.jpg"],
+        "features": [
+          "50+ completed projects",
+          "In-person viewing",
+          "Video tours available",
+          "Building across Ukraine & Europe"
+        ],
+        "images": [
+          "/images/projects/project-timber-house.jpg",
+          "/images/projects/project-grey-house.jpg",
+          "/images/projects/project-dark-houses.jpg"
+        ],
         "video": "/videos/finished-project.mp4"
       },
       {
         "title": "Expert Team",
         "text": "Our architects and engineers tailor every project to your site, budget and lifestyle.",
         "details": "Our team consists of 30+ specialists, each with over 5 years of experience in timber construction. Architects, structural engineers, MEP engineers, and builders work seamlessly at every stage. We continuously learn and implement the latest glulam construction technologies.",
-        "features": ["30+ specialists on the team", "5+ years experience each", "In-house architects", "Continuous professional development"],
-        "images": ["/images/construction/construction-frame-evening.jpg", "/images/construction/construction-frame-winter.jpg", "/images/production/production-delivery.jpg"]
+        "features": [
+          "30+ specialists on the team",
+          "5+ years experience each",
+          "In-house architects",
+          "Continuous professional development"
+        ],
+        "images": [
+          "/images/construction/construction-frame-evening.jpg",
+          "/images/construction/construction-frame-winter.jpg",
+          "/images/production/production-delivery.jpg"
+        ]
       }
     ]
   },
   "stats": {
     "items": [
-      { "value": 50, "suffix": "+", "label": "houses built" },
-      { "value": 8, "suffix": "", "label": "years of experience" },
-      { "value": 5, "suffix": "", "label": "months avg. build time" },
-      { "value": 100, "suffix": "%", "label": "own production" }
+      {
+        "value": 50,
+        "suffix": "+",
+        "label": "houses built"
+      },
+      {
+        "value": 8,
+        "suffix": "",
+        "label": "years of experience"
+      },
+      {
+        "value": 5,
+        "suffix": "",
+        "label": "months avg. build time"
+      },
+      {
+        "value": 100,
+        "suffix": "%",
+        "label": "own production"
+      }
     ]
   },
   "process": {
     "label": "How We Work",
     "heading": "From idea to finished\nhome in 5 steps",
     "steps": [
-      { "number": "01", "title": "Consultation", "text": "We discuss your wishes, budget and site specifics. Free of charge." },
-      { "number": "02", "title": "Design", "text": "Our architects create a custom project with a full set of documentation." },
-      { "number": "03", "title": "Production", "text": "We manufacture the house kit at our own facility with strict quality control." },
-      { "number": "04", "title": "Construction", "text": "Our experienced crew assembles the house on your site, turnkey." },
-      { "number": "05", "title": "Handover", "text": "We inspect quality, hand over the keys and provide a warranty on the house." }
+      {
+        "number": "01",
+        "title": "Consultation",
+        "text": "We discuss your wishes, budget and site specifics. Free of charge."
+      },
+      {
+        "number": "02",
+        "title": "Design",
+        "text": "Our architects create a custom project with a full set of documentation."
+      },
+      {
+        "number": "03",
+        "title": "Production",
+        "text": "We manufacture the house kit at our own facility with strict quality control."
+      },
+      {
+        "number": "04",
+        "title": "Construction",
+        "text": "Our experienced crew assembles the house on your site, turnkey."
+      },
+      {
+        "number": "05",
+        "title": "Handover",
+        "text": "We inspect quality, hand over the keys and provide a warranty on the house."
+      }
     ]
   },
   "calculator": {
@@ -89,18 +172,45 @@
     "areaLabel": "House Area",
     "areaUnit": "m²",
     "floorsLabel": "Number of Floors",
-    "floors": ["1 floor", "2 floors"],
+    "floors": [
+      "1 floor",
+      "2 floors"
+    ],
     "timberLabel": "Timber Thickness",
     "timberOptions": [
-      { "value": "180", "label": "180 mm", "desc": "Standard" },
-      { "value": "200", "label": "200 mm", "desc": "Enhanced" },
-      { "value": "240", "label": "240 mm", "desc": "Premium" }
+      {
+        "value": "180",
+        "label": "180 mm",
+        "desc": "Standard"
+      },
+      {
+        "value": "200",
+        "label": "200 mm",
+        "desc": "Enhanced"
+      },
+      {
+        "value": "240",
+        "label": "240 mm",
+        "desc": "Premium"
+      }
     ],
     "packageLabel": "Package",
     "packages": [
-      { "value": "kit", "label": "House Kit", "desc": "Walls, floors, roofing" },
-      { "value": "shell", "label": "Shell", "desc": "Kit + foundation + assembly" },
-      { "value": "turnkey", "label": "Turnkey", "desc": "Fully finished home" }
+      {
+        "value": "kit",
+        "label": "House Kit",
+        "desc": "Walls, floors, roofing"
+      },
+      {
+        "value": "shell",
+        "label": "Shell",
+        "desc": "Kit + foundation + assembly"
+      },
+      {
+        "value": "turnkey",
+        "label": "Turnkey",
+        "desc": "Fully finished home"
+      }
     ],
     "resultLabel": "Estimated Cost",
     "resultFrom": "from",
@@ -114,7 +224,12 @@
     "label": "Our Real Project",
     "heading": "A house you can\nvisit in person",
     "desc": "This glulam timber house was built for a real client. The client received a fully finished home from design to handover. Our own production and experienced team guarantee quality at every stage.",
-    "features": ["Fully finished turnkey", "All engineering systems", "Completed in 5 months", "Available for viewing"],
+    "features": [
+      "Fully finished turnkey",
+      "All engineering systems",
+      "Completed in 5 months",
+      "Available for viewing"
+    ],
     "badgeValue": "120 m²",
     "badgeLabel": "house area",
     "cta": "Schedule a Visit"
@@ -184,7 +299,12 @@
         "time": "4.5 months",
         "description": "Single-story glulam timber house with a spacious terrace and panoramic windows. Modern design with natural materials.",
         "image": "/images/projects/project-timber-house.jpg",
-        "features": ["Panoramic windows", "25 m² terrace", "Underfloor heating", "Autonomous heating"]
+        "features": [
+          "Panoramic windows",
+          "25 m² terrace",
+          "Underfloor heating",
+          "Autonomous heating"
+        ]
       },
       {
         "title": "Guest House with Veranda",
@@ -193,7 +313,12 @@
         "time": "3 months",
         "description": "Compact house with decorative painting and a cozy veranda. Perfect solution for a guest or summer house.",
         "image": "/images/projects/project-grey-house.jpg",
-        "features": ["Decorative painting", "Lattice veranda", "Compact layout", "Efficient heating"]
+        "features": [
+          "Decorative painting",
+          "Lattice veranda",
+          "Compact layout",
+          "Efficient heating"
+        ]
       },
       {
         "title": "Modern Cabin with Panoramic Glazing",
@@ -202,7 +327,12 @@
         "time": "3.5 months",
         "description": "Stylish mini-house with large panoramic glazing and an open terrace. Modern architecture in a mountain landscape.",
         "image": "/images/projects/project-modern-cabin.jpg",
-        "features": ["Panoramic glazing", "Open terrace", "Mountain style", "Energy efficiency A+"]
+        "features": [
+          "Panoramic glazing",
+          "Open terrace",
+          "Mountain style",
+          "Energy efficiency A+"
+        ]
       },
       {
         "title": "Cottage Complex",
@@ -211,7 +341,12 @@
         "time": "8 months",
         "description": "A complex of 12 identical cottages for a recreational resort. Dark staining, verandas and full autonomy for each house.",
         "image": "/images/projects/project-dark-houses.jpg",
-        "features": ["12 houses in complex", "Recreational purpose", "Unified architectural style", "Full autonomy"]
+        "features": [
+          "12 houses in complex",
+          "Recreational purpose",
+          "Unified architectural style",
+          "Full autonomy"
+        ]
       },
       {
         "title": "Two-Story Family Home",
@@ -220,7 +355,12 @@
         "time": "5.5 months",
         "description": "Spacious two-story home for a large family with a balcony and mansard floor. Classic timber construction style.",
         "image": "/images/projects/project-two-story.jpg",
-        "features": ["2 stories", "Balcony & mansard", "4 bedrooms", "2-car garage"]
+        "features": [
+          "2 stories",
+          "Balcony & mansard",
+          "4 bedrooms",
+          "2-car garage"
+        ]
       },
       {
         "title": "Compact Homestead",
@@ -229,38 +369,82 @@
         "time": "2.5 months",
         "description": "Small functional house for a dacha or guest use. Full set of amenities in a compact format.",
         "image": "/images/projects/project-small-cabin.jpg",
-        "features": ["Compact format", "Full bathroom", "Mini kitchen", "Budget-friendly"]
+        "features": [
+          "Compact format",
+          "Full bathroom",
+          "Mini kitchen",
+          "Budget-friendly"
+        ]
       }
     ],
     "construction": {
       "label": "Construction Process",
       "heading": "How Our Houses Are Born",
       "images": [
-        { "src": "/images/construction/construction-frame-large.jpg", "caption": "Large cottage frame assembly" },
-        { "src": "/images/construction/construction-workers.jpg", "caption": "Team installing the roof" },
-        { "src": "/images/construction/construction-row.jpg", "caption": "Serial construction of complex" },
-        { "src": "/images/construction/construction-frame-winter.jpg", "caption": "Winter construction" },
-        { "src": "/images/construction/construction-frame-evening.jpg", "caption": "Evening shift on site" }
+        {
+          "src": "/images/construction/construction-frame-large.jpg",
+          "caption": "Large cottage frame assembly"
+        },
+        {
+          "src": "/images/construction/construction-workers.jpg",
+          "caption": "Team installing the roof"
+        },
+        {
+          "src": "/images/construction/construction-row.jpg",
+          "caption": "Serial construction of complex"
+        },
+        {
+          "src": "/images/construction/construction-frame-winter.jpg",
+          "caption": "Winter construction"
+        },
+        {
+          "src": "/images/construction/construction-frame-evening.jpg",
+          "caption": "Evening shift on site"
+        }
       ]
     },
     "production": {
       "label": "Our Production",
       "heading": "From Timber to Ready Kit",
       "images": [
-        { "src": "/images/production/production-warehouse.jpg", "caption": "Ready kit warehouse" },
-        { "src": "/images/production/production-timber-stacks.jpg", "caption": "Profiled timber beams" },
-        { "src": "/images/production/production-closeup.jpg", "caption": "Joint quality" },
-        { "src": "/images/production/production-delivery.jpg", "caption": "Kit delivery to site" },
-        { "src": "/images/production/production-planks.jpg", "caption": "Production workshop" }
+        {
+          "src": "/images/production/production-warehouse.jpg",
+          "caption": "Ready kit warehouse"
+        },
+        {
+          "src": "/images/production/production-timber-stacks.jpg",
+          "caption": "Profiled timber beams"
+        },
+        {
+          "src": "/images/production/production-closeup.jpg",
+          "caption": "Joint quality"
+        },
+        {
+          "src": "/images/production/production-delivery.jpg",
+          "caption": "Kit delivery to site"
+        },
+        {
+          "src": "/images/production/production-planks.jpg",
+          "caption": "Production workshop"
+        }
       ]
     },
     "videos": {
       "label": "Videos",
       "heading": "Watch Live",
       "items": [
-        { "src": "/videos/production-showcase.mp4", "title": "Timber Production" },
-        { "src": "/videos/construction-process.mp4", "title": "Construction Process" },
-        { "src": "/videos/finished-project.mp4", "title": "Finished Project" }
+        {
+          "src": "/videos/production-showcase.mp4",
+          "title": "Timber Production"
+        },
+        {
+          "src": "/videos/construction-process.mp4",
+          "title": "Construction Process"
+        },
+        {
+          "src": "/videos/finished-project.mp4",
+          "title": "Finished Project"
+        }
       ]
     }
   },
@@ -286,6 +470,96 @@
     },
     "contactsTitle": "Contacts",
     "address": "Ukraine, Kyiv",
-    "copyright": "TimberHouse. All rights reserved."
+    "copyright": "TimberHouse. All rights reserved.",
+    "legalTitle": "Information",
+    "legalLinks": {
+      "privacy": "Privacy Policy"
+    }
+  },
+  "privacy": {
+    "metaTitle": "Privacy Policy | TimberHouse",
+    "metaDescription": "How we collect, use, and protect your personal data on timberhouse.biz.",
+    "title": "Privacy Policy",
+    "updated": "Last updated: June 8, 2026",
+    "sections": [
+      {
+        "heading": "1. General Provisions",
+        "paragraphs": [
+          "This Privacy Policy describes how [LLC \"COMPANY NAME\" / Sole Proprietor FULL NAME] (Tax ID: [XXXXXXXX]), hereinafter — \"Company\", \"we\", collects, processes, and stores personal data of users of the website timberhouse.biz (hereinafter — \"Website\").",
+          "By using the Website, you agree to the terms of this Policy. Personal data is processed in accordance with the Law of Ukraine \"On Personal Data Protection\" No. 2297-VI."
+        ]
+      },
+      {
+        "heading": "2. Data We Collect",
+        "paragraphs": [
+          "We collect only the data you voluntarily provide through contact forms, as well as technical data for Website analytics:"
+        ],
+        "list": [
+          "Contact details: name, phone number, email — when you submit a request",
+          "Content of your message in the form",
+          "Technical data: IP address, device type, browser, operating system",
+          "Behavioral data: visited pages, time on site, referral source",
+          "Cookies (with your consent)"
+        ]
+      },
+      {
+        "heading": "3. Purpose of Data Processing",
+        "paragraphs": [
+          "We use your data for:"
+        ],
+        "list": [
+          "Contacting you regarding your inquiry or request",
+          "Preparing a commercial proposal and cost estimation",
+          "Improving the Website and service quality",
+          "Analyzing the effectiveness of marketing campaigns",
+          "Fulfilling contractual and legal obligations"
+        ]
+      },
+      {
+        "heading": "4. Cookies and Analytics",
+        "paragraphs": [
+          "We use cookies and web analytics services, including Google Analytics 4 and Google Ads. These services may set their own cookies to collect anonymized statistics about Website usage.",
+          "You can manage cookie consent through the banner on your first visit, or opt out of cookies at any time via your browser settings. Declining cookies will not affect your ability to submit a request."
+        ]
+      },
+      {
+        "heading": "5. Sharing Data with Third Parties",
+        "paragraphs": [
+          "We do not sell or share your personal data with third parties for commercial purposes. Data may be transferred only to:"
+        ],
+        "list": [
+          "Technical contractors (hosting, email services) — to ensure Website operation",
+          "Google LLC — for analytics (in anonymized form)",
+          "Law enforcement authorities — in cases provided by Ukrainian legislation"
+        ]
+      },
+      {
+        "heading": "6. Data Storage and Security",
+        "paragraphs": [
+          "We store your personal data no longer than necessary to achieve processing purposes, but not more than 3 years from the last contact, unless otherwise required by law.",
+          "We apply technical and organizational measures to protect data from unauthorized access: HTTPS encryption, restricted employee access, and regular security system updates."
+        ]
+      },
+      {
+        "heading": "7. Your Rights",
+        "paragraphs": [
+          "In accordance with Ukrainian legislation, you have the right to:"
+        ],
+        "list": [
+          "Receive information about the processing of your personal data",
+          "Request clarification, correction, or deletion of your data",
+          "Withdraw consent to data processing at any time",
+          "File a complaint with the Ukrainian Parliament Commissioner for Human Rights"
+        ]
+      },
+      {
+        "heading": "8. Changes to the Policy",
+        "paragraphs": [
+          "We reserve the right to make changes to this Policy. The current version is always available on this page with the date of the last update."
+        ]
+      }
+    ],
+    "contactHeading": "Data Protection Contact",
+    "contactText": "If you have any questions about the processing of your personal data or wish to exercise your rights, please contact us:"
   }
 }

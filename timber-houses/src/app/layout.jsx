@@ -1,5 +1,7 @@
 import { Inter, Playfair_Display } from "next/font/google";
 import { Toaster } from "react-hot-toast";
+import ConsentInit from "@/components/Analytics/ConsentInit";
+import GoogleAnalytics from "@/components/Analytics/GoogleAnalytics";
 import "./globals.css";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://timberhouse.biz";
@@ -25,6 +27,10 @@ const playfair = Playfair_Display({
 export default function RootLayout({ children }) {
   return (
     <html className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
+      <head>
+        <ConsentInit />
+        <GoogleAnalytics />
+      </head>
       <body>
         {children}
         <Toaster
