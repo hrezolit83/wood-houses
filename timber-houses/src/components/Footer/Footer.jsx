@@ -39,6 +39,7 @@ export default function Footer({ t, locale }) {
             <h4>{t.contactsTitle}</h4>
             <a href="tel:+380636485920" onClick={() => trackPhoneClick("footer")}>+38 (063) 648-59-20</a>
             <a href="tel:+380993258334" onClick={() => trackPhoneClick("footer")}>+38 (099) 325-83-34</a>
+            <a href="tel:+380665053877" onClick={() => trackPhoneClick("footer")}>+38 (066) 505-38-77</a>
             <a href="mailto:info@timberhouse.biz" onClick={() => trackEmailClick("footer")}>info@timberhouse.biz</a>
             <p>{t.address}</p>
           </div>

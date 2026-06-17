@@ -39,6 +39,12 @@ export function LocalBusinessJsonLd({ locale = "uk" }) {
         contactType: "customer support",
         availableLanguage: ["uk", "en"],
       },
+      {
+        "@type": "ContactPoint",
+        telephone: "+380665053877",
+        contactType: "customer support",
+        availableLanguage: ["uk", "en"],
+      },
     ],
   };
 
