@@ -46,3 +46,4 @@ next-env.d.ts
 # project credentials (NEVER commit)
 CREDENTIALS.md
 .credentials.local
+CLAUDE.md

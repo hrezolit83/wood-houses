@@ -1,5 +1,6 @@
 import { Inter, Playfair_Display } from "next/font/google";
 import { Toaster } from "react-hot-toast";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import ConsentInit from "@/components/Analytics/ConsentInit";
 import GoogleAnalytics from "@/components/Analytics/GoogleAnalytics";
 import "./globals.css";
@@ -44,6 +45,7 @@ export default function RootLayout({ children }) {
             },
           }}
         />
+        <SpeedInsights />
       </body>
     </html>
   );
