@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Container from "@/components/Container/Container";
+import Lightbox from "@/components/Lightbox/Lightbox";
 import styles from "./ObjectsPage.module.css";
 
-function ProjectCard({ project, index }) {
+function ProjectCard({ project, index, onImageClick }) {
   return (
     <motion.div
       className={styles.projectCard}
@@ -15,7 +16,11 @@ function ProjectCard({ project, index }) {
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <div className={styles.projectImage}>
+      <div
+        className={styles.projectImage}
+        onClick={onImageClick}
+        style={{ cursor: "zoom-in" }}
+      >
         <Image
           src={project.image}
           alt={project.title}
@@ -55,7 +60,7 @@ function ProjectCard({ project, index }) {
 }
 
 function ImageGallery({ images }) {
-  const [lightbox, setLightbox] = useState(null);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
 
   return (
     <>
@@ -68,7 +73,7 @@ function ImageGallery({ images }) {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-30px" }}
             transition={{ duration: 0.4, delay: i * 0.08 }}
-            onClick={() => setLightbox(i)}
+            onClick={() => setLightboxIndex(i)}
           >
             <Image
               src={img.src}
@@ -82,64 +87,25 @@ function ImageGallery({ images }) {
         ))}
       </div>
 
-      <AnimatePresence>
-        {lightbox !== null && (
-          <motion.div
-            className={styles.lightbox}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setLightbox(null)}
-          >
-            <motion.div
-              className={styles.lightboxContent}
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.9 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Image
-                src={images[lightbox].src}
-                alt={images[lightbox].caption}
-                width={1200}
-                height={800}
-                className={styles.lightboxImg}
-              />
-              <p className={styles.lightboxCaption}>{images[lightbox].caption}</p>
-              <button className={styles.lightboxClose} onClick={() => setLightbox(null)}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              </button>
-              {lightbox > 0 && (
-                <button
-                  className={`${styles.lightboxNav} ${styles.lightboxPrev}`}
-                  onClick={(e) => { e.stopPropagation(); setLightbox(lightbox - 1); }}
-                >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6" /></svg>
-                </button>
-              )}
-              {lightbox < images.length - 1 && (
-                <button
-                  className={`${styles.lightboxNav} ${styles.lightboxNext}`}
-                  onClick={(e) => { e.stopPropagation(); setLightbox(lightbox + 1); }}
-                >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6" /></svg>
-                </button>
-              )}
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={images}
+          index={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onNav={setLightboxIndex}
+        />
+      )}
     </>
   );
 }
 
 export default function ObjectsPage({ t }) {
+  const [projectLightbox, setProjectLightbox] = useState(null);
+
+  const projectImages = t.projects.map((p) => ({ src: p.image, caption: p.title }));
+
   return (
     <div className={styles.page}>
-      {/* Hero Section */}
       <section className={styles.hero}>
         <Container>
           <motion.div
@@ -155,18 +121,30 @@ export default function ObjectsPage({ t }) {
         </Container>
       </section>
 
-      {/* Projects Grid */}
       <section className={styles.projects}>
         <Container>
           <div className={styles.projectsGrid}>
             {t.projects.map((project, i) => (
-              <ProjectCard key={i} project={project} index={i} />
+              <ProjectCard
+                key={i}
+                project={project}
+                index={i}
+                onImageClick={() => setProjectLightbox(i)}
+              />
             ))}
           </div>
         </Container>
       </section>
 
-      {/* Construction Gallery */}
+      {projectLightbox !== null && (
+        <Lightbox
+          images={projectImages}
+          index={projectLightbox}
+          onClose={() => setProjectLightbox(null)}
+          onNav={setProjectLightbox}
+        />
+      )}
+
       <section className={styles.gallerySection}>
         <Container>
           <div className={styles.sectionHeader}>
@@ -177,7 +155,6 @@ export default function ObjectsPage({ t }) {
         </Container>
       </section>
 
-      {/* Production Gallery */}
       <section className={styles.gallerySection}>
         <Container>
           <div className={styles.sectionHeader}>
@@ -188,7 +165,6 @@ export default function ObjectsPage({ t }) {
         </Container>
       </section>
 
-      {/* Videos */}
       <section className={styles.videosSection}>
         <Container>
           <div className={styles.sectionHeader}>
@@ -220,7 +196,6 @@ export default function ObjectsPage({ t }) {
         </Container>
       </section>
 
-      {/* CTA */}
       <section className={styles.ctaSection}>
         <Container>
           <motion.div

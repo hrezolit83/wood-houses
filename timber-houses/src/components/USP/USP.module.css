@@ -183,6 +183,7 @@
 }
 
 .videoWrap {
+  position: relative;
   border-radius: 12px;
   overflow: hidden;
   margin-top: 16px;
@@ -193,6 +194,21 @@
   display: block;
   border-radius: 12px;
   background: #000;
+  pointer-events: none;
+}
+
+.videoOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.15);
+  transition: background 0.2s;
+}
+
+.videoWrap:hover .videoOverlay {
+  background: rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 900px) {

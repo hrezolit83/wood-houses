@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Container from "@/components/Container/Container";
 import styles from "./Hero.module.css";
+import Lightbox from "@/components/Lightbox/Lightbox";
 
 const slides = [
   "/images/hero/modern-timber-house.jpg",
@@ -20,6 +21,7 @@ const INTERVAL = 5000;
 export default function Hero({ t }) {
   const [index, setIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const touchStart = useRef(null);
 
   const goNext = useCallback(() => {
@@ -50,6 +52,7 @@ export default function Hero({ t }) {
   };
 
   return (
+    <>
     <section className={styles.hero}>
       <Container>
         <div className={styles.grid}>
@@ -92,6 +95,7 @@ export default function Hero({ t }) {
             onMouseLeave={() => setIsPaused(false)}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
+            onClick={() => setLightboxOpen(true)}
           >
             <AnimatePresence mode="popLayout">
               <motion.div
@@ -113,12 +117,12 @@ export default function Hero({ t }) {
             </AnimatePresence>
 
             {/* Navigation arrows */}
-            <button className={`${styles.arrow} ${styles.arrowLeft}`} onClick={goPrev} aria-label="Previous">
+            <button className={`${styles.arrow} ${styles.arrowLeft}`} onClick={(e) => { e.stopPropagation(); goPrev(); }} aria-label="Previous">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="15 18 9 12 15 6" />
               </svg>
             </button>
-            <button className={`${styles.arrow} ${styles.arrowRight}`} onClick={goNext} aria-label="Next">
+            <button className={`${styles.arrow} ${styles.arrowRight}`} onClick={(e) => { e.stopPropagation(); goNext(); }} aria-label="Next">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="9 6 15 12 9 18" />
               </svg>
@@ -157,5 +161,15 @@ export default function Hero({ t }) {
         </div>
       </Container>
     </section>
+
+      {lightboxOpen && (
+        <Lightbox
+          images={slides.map((src, i) => ({ src, caption: t.slides?.[i] || "" }))}
+          index={index}
+          onClose={() => setLightboxOpen(false)}
+          onNav={setIndex}
+        />
+      )}
+    </>
   );
 }

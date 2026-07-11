@@ -4,6 +4,7 @@ import { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Container from "@/components/Container/Container";
+import Lightbox from "@/components/Lightbox/Lightbox";
 import styles from "./USP.module.css";
 
 const icons = [
@@ -35,6 +36,7 @@ const icons = [
 
 export default function USP({ t }) {
   const [openIndex, setOpenIndex] = useState(null);
+  const [lightbox, setLightbox] = useState(null);
   const cardRefs = useRef([]);
 
   const toggle = useCallback((i) => {
@@ -42,18 +44,20 @@ export default function USP({ t }) {
     setOpenIndex(isClosing ? null : i);
 
     if (!isClosing) {
-      // Wait for framer-motion animation to mostly finish, then scroll
       setTimeout(() => {
         const card = cardRefs.current[i];
         if (!card) return;
         const headerHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 80;
         const cardTop = card.getBoundingClientRect().top + window.scrollY;
         const targetScroll = cardTop - headerHeight - 12;
-
         window.scrollTo({ top: targetScroll, behavior: "smooth" });
       }, 380);
     }
   }, [openIndex]);
+
+  const openLightbox = useCallback((items, startIndex) => {
+    setLightbox({ items, index: startIndex });
+  }, []);
 
   return (
     <section id="advantages" className={styles.usp}>
@@ -66,6 +70,11 @@ export default function USP({ t }) {
         <div className={styles.grid}>
           {t.items.map((item, i) => {
             const isOpen = openIndex === i;
+
+            const mediaItems = [
+              ...(item.images || []).map((src) => ({ src, caption: item.title })),
+              ...(item.video ? [{ src: item.video, type: "video", caption: item.title }] : []),
+            ];
 
             return (
               <div key={i} ref={(el) => (cardRefs.current[i] = el)} className={`${styles.card} ${isOpen ? styles.cardOpen : ""}`}>
@@ -84,16 +93,7 @@ export default function USP({ t }) {
                     className={`${styles.expandBtn} ${isOpen ? styles.expandBtnOpen : ""}`}
                     aria-label="Toggle details"
                   >
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="6 9 12 15 18 9" />
                     </svg>
                   </button>
@@ -127,7 +127,12 @@ export default function USP({ t }) {
                         {item.images && (
                           <div className={styles.gallery}>
                             {item.images.map((src, j) => (
-                              <div key={j} className={styles.galleryItem}>
+                              <div
+                                key={j}
+                                className={styles.galleryItem}
+                                onClick={() => openLightbox(mediaItems, j)}
+                                style={{ cursor: "zoom-in" }}
+                              >
                                 <Image
                                   src={src}
                                   alt={`${item.title} - ${j + 1}`}
@@ -141,15 +146,24 @@ export default function USP({ t }) {
                         )}
 
                         {item.video && (
-                          <div className={styles.videoWrap}>
+                          <div
+                            className={styles.videoWrap}
+                            onClick={() => openLightbox(mediaItems, (item.images || []).length)}
+                            style={{ cursor: "zoom-in" }}
+                          >
                             <video
                               src={item.video}
                               muted
                               playsInline
-                              controls
                               preload="metadata"
                               className={styles.video}
                             />
+                            <div className={styles.videoOverlay}>
+                              <svg width="48" height="48" viewBox="0 0 24 24" fill="white" stroke="none">
+                                <circle cx="12" cy="12" r="12" fill="rgba(0,0,0,0.5)" />
+                                <polygon points="10,8 17,12 10,16" fill="white" />
+                              </svg>
+                            </div>
                           </div>
                         )}
                       </div>
@@ -161,6 +175,18 @@ export default function USP({ t }) {
           })}
         </div>
       </Container>
+
+      {lightbox !== null && (
+        <Lightbox
+          images={lightbox.items}
+          index={lightbox.index}
+          onClose={() => setLightbox(null)}
+          onNav={(val) => setLightbox((prev) => ({
+            ...prev,
+            index: typeof val === "function" ? val(prev.index) : val,
+          }))}
+        />
+      )}
     </section>
   );
 }
