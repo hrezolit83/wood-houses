@@ -23,7 +23,7 @@ const PACKAGE_MULTIPLIER = {
   turnkey: 1.65,
 };
 
-const NBU_FALLBACK = 41;
+const NBU_FALLBACK = 44.5;
 
 export default function Calculator({ t }) {
   const [area,    setArea]    = useState(120);
@@ -35,7 +35,7 @@ export default function Calculator({ t }) {
   const [rateDate, setRateDate] = useState("");
 
   useEffect(() => {
-    fetch("https://bank.gov.ua/NBU_Exchange/exchange_site?valcode=USD&json")
+    fetch("https://bank.gov.ua/NBU_Exchange/exchange_site?valcode=USD&sort=exchangedate&order=desc&limit=1&json")
       .then((r) => r.json())
       .then((data) => {
         if (data?.[0]?.rate) {
