@@ -1,11 +1,13 @@
 "use client";
 
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import styles from "./Lightbox.module.css";
 
 export default function Lightbox({ images, index, onClose, onNav }) {
+  const touchStart = useRef(null);
+
   const goPrev = useCallback(() => {
     onNav((prev) => (prev - 1 + images.length) % images.length);
   }, [images.length, onNav]);
@@ -28,6 +30,19 @@ export default function Lightbox({ images, index, onClose, onNav }) {
     };
   }, [onClose, goPrev, goNext]);
 
+  const handleTouchStart = (e) => {
+    touchStart.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStart.current === null) return;
+    const diff = touchStart.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) {
+      diff > 0 ? goNext() : goPrev();
+    }
+    touchStart.current = null;
+  };
+
   const current = images[index];
   const isVideo = current.type === "video";
 
@@ -38,6 +53,8 @@ export default function Lightbox({ images, index, onClose, onNav }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       <motion.div
         className={styles.content}
