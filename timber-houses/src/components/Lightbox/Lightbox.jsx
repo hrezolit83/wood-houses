@@ -1,12 +1,107 @@
 "use client";
 
-import { useEffect, useCallback, useRef } from "react";
+import { useEffect, useCallback, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import styles from "./Lightbox.module.css";
 
+function getDistance(t1, t2) {
+  const dx = t1.clientX - t2.clientX;
+  const dy = t1.clientY - t2.clientY;
+  return Math.sqrt(dx * dx + dy * dy);
+}
+
+function ZoomableImage({ src, alt }) {
+  const [scale, setScale] = useState(1);
+  const [origin, setOrigin] = useState({ x: 50, y: 50 });
+  const pinchRef = useRef(null);
+  const imgRef = useRef(null);
+
+  const resetZoom = useCallback(() => {
+    setScale(1);
+    setOrigin({ x: 50, y: 50 });
+  }, []);
+
+  useEffect(() => {
+    resetZoom();
+  }, [src, resetZoom]);
+
+  const handleTouchStart = (e) => {
+    if (e.touches.length === 2) {
+      pinchRef.current = {
+        dist: getDistance(e.touches[0], e.touches[1]),
+        scale,
+      };
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    if (e.touches.length === 2 && pinchRef.current) {
+      e.stopPropagation();
+      const newDist = getDistance(e.touches[0], e.touches[1]);
+      const ratio = newDist / pinchRef.current.dist;
+      const newScale = Math.min(Math.max(pinchRef.current.scale * ratio, 1), 4);
+
+      const rect = imgRef.current?.getBoundingClientRect();
+      if (rect) {
+        const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+        const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+        const ox = ((midX - rect.left) / rect.width) * 100;
+        const oy = ((midY - rect.top) / rect.height) * 100;
+        setOrigin({ x: ox, y: oy });
+      }
+
+      setScale(newScale);
+    }
+  };
+
+  const handleTouchEnd = (e) => {
+    if (e.touches.length < 2) {
+      pinchRef.current = null;
+      if (scale < 1.05) resetZoom();
+    }
+  };
+
+  const handleDoubleTap = (() => {
+    let lastTap = 0;
+    return () => {
+      const now = Date.now();
+      if (now - lastTap < 300) {
+        scale > 1 ? resetZoom() : setScale(2.5);
+      }
+      lastTap = now;
+    };
+  })();
+
+  return (
+    <div
+      ref={imgRef}
+      className={styles.zoomContainer}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      onClick={handleDoubleTap}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        width={1400}
+        height={900}
+        className={styles.img}
+        priority
+        style={{
+          transform: `scale(${scale})`,
+          transformOrigin: `${origin.x}% ${origin.y}%`,
+          transition: scale === 1 ? "transform 0.2s ease" : "none",
+        }}
+      />
+    </div>
+  );
+}
+
 export default function Lightbox({ images, index, onClose, onNav }) {
   const touchStart = useRef(null);
+  const isZoomed = useRef(false);
 
   const goPrev = useCallback(() => {
     onNav((prev) => (prev - 1 + images.length) % images.length);
@@ -24,18 +119,30 @@ export default function Lightbox({ images, index, onClose, onNav }) {
     };
     window.addEventListener("keydown", handler);
     document.body.style.overflow = "hidden";
+
+    const viewport = document.querySelector("meta[name=viewport]");
+    const original = viewport?.getAttribute("content") || "";
+    if (viewport) {
+      viewport.setAttribute("content", "width=device-width, initial-scale=1, maximum-scale=1");
+    }
+
     return () => {
       window.removeEventListener("keydown", handler);
       document.body.style.overflow = "";
+      if (viewport && original) viewport.setAttribute("content", original);
     };
   }, [onClose, goPrev, goNext]);
 
   const handleTouchStart = (e) => {
-    touchStart.current = e.touches[0].clientX;
+    if (e.touches.length === 1) {
+      touchStart.current = e.touches[0].clientX;
+    } else {
+      touchStart.current = null;
+    }
   };
 
   const handleTouchEnd = (e) => {
-    if (touchStart.current === null) return;
+    if (isZoomed.current || touchStart.current === null) return;
     const diff = touchStart.current - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 40) {
       diff > 0 ? goNext() : goPrev();
@@ -82,13 +189,9 @@ export default function Lightbox({ images, index, onClose, onNav }) {
                 className={styles.video}
               />
             ) : (
-              <Image
+              <ZoomableImage
                 src={current.src}
                 alt={current.caption || ""}
-                width={1400}
-                height={900}
-                className={styles.img}
-                priority
               />
             )}
           </motion.div>
@@ -129,7 +232,7 @@ export default function Lightbox({ images, index, onClose, onNav }) {
 
       {images.length > 1 && (
         <div className={styles.dots} onClick={(e) => e.stopPropagation()}>
-          {images.map((item, i) => (
+          {images.map((_, i) => (
             <button
               key={i}
               className={`${styles.dot} ${i === index ? styles.dotActive : ""}`}

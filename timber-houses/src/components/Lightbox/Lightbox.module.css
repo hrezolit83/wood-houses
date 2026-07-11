@@ -26,6 +26,16 @@
   justify-content: center;
 }
 
+.zoomContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+  overflow: hidden;
+  max-width: 88vw;
+  max-height: 78vh;
+}
+
 .img {
   max-width: 88vw;
   max-height: 78vh;
@@ -34,6 +44,7 @@
   object-fit: contain;
   border-radius: 8px;
   display: block;
+  will-change: transform;
 }
 
 .caption {

@@ -33,10 +33,10 @@ export default function Hero({ t }) {
   }, []);
 
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || lightboxOpen) return;
     const id = setInterval(goNext, INTERVAL);
     return () => clearInterval(id);
-  }, [isPaused, goNext]);
+  }, [isPaused, lightboxOpen, goNext]);
 
   const handleTouchStart = (e) => {
     touchStart.current = e.touches[0].clientX;
