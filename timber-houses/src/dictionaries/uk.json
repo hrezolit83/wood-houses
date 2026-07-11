@@ -179,6 +179,11 @@
     "timberLabel": "Товщина бруса",
     "timberOptions": [
       {
+        "value": "160",
+        "label": "160 мм",
+        "desc": "Економ"
+      },
+      {
         "value": "200",
         "label": "200 мм",
         "desc": "Стандарт"

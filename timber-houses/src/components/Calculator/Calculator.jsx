@@ -7,6 +7,7 @@ import styles from "./Calculator.module.css";
 const USEFUL_AREA_COEF = 0.85;
 
 const TIMBER_CONFIG = {
+  "160": { cubeCoef: 0.4,  price: 45000 },
   "200": { cubeCoef: 0.5,  price: 45000 },
   "240": { cubeCoef: 0.6,  price: 51700 },
   "300": { cubeCoef: 0.75, price: 51700 },

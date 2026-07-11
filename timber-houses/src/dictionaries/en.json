@@ -179,6 +179,11 @@
     "timberLabel": "Timber Thickness",
     "timberOptions": [
       {
+        "value": "160",
+        "label": "160 mm",
+        "desc": "Economy"
+      },
+      {
         "value": "200",
         "label": "200 mm",
         "desc": "Standard"
