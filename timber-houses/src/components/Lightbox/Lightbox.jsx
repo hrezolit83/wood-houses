@@ -11,76 +11,132 @@ function getDistance(t1, t2) {
   return Math.sqrt(dx * dx + dy * dy);
 }
 
-function ZoomableImage({ src, alt }) {
-  const [scale, setScale] = useState(1);
-  const [origin, setOrigin] = useState({ x: 50, y: 50 });
-  const pinchRef = useRef(null);
-  const imgRef = useRef(null);
+function getMidpoint(t1, t2) {
+  return { x: (t1.clientX + t2.clientX) / 2, y: (t1.clientY + t2.clientY) / 2 };
+}
+
+function ZoomableImage({ src, alt, onSwipe }) {
+  const [transform, setTransform] = useState({ scale: 1, tx: 0, ty: 0 });
+  const gestureRef = useRef(null);
+  const containerRef = useRef(null);
 
   const resetZoom = useCallback(() => {
-    setScale(1);
-    setOrigin({ x: 50, y: 50 });
+    setTransform({ scale: 1, tx: 0, ty: 0 });
   }, []);
 
   useEffect(() => {
     resetZoom();
   }, [src, resetZoom]);
 
+  const clampTranslate = (scale, tx, ty) => {
+    if (scale <= 1) return { tx: 0, ty: 0 };
+    const rect = containerRef.current?.getBoundingClientRect();
+    if (!rect) return { tx, ty };
+    const maxTx = (rect.width * (scale - 1)) / 2;
+    const maxTy = (rect.height * (scale - 1)) / 2;
+    return {
+      tx: Math.min(Math.max(tx, -maxTx), maxTx),
+      ty: Math.min(Math.max(ty, -maxTy), maxTy),
+    };
+  };
+
   const handleTouchStart = (e) => {
-    if (e.touches.length === 2) {
-      pinchRef.current = {
-        dist: getDistance(e.touches[0], e.touches[1]),
-        scale,
+    e.stopPropagation();
+    if (e.touches.length === 1) {
+      gestureRef.current = {
+        type: "pan",
+        startX: e.touches[0].clientX,
+        startY: e.touches[0].clientY,
+        startTx: transform.tx,
+        startTy: transform.ty,
+        scale: transform.scale,
+        moved: false,
+      };
+    } else if (e.touches.length === 2) {
+      gestureRef.current = {
+        type: "pinch",
+        startDist: getDistance(e.touches[0], e.touches[1]),
+        startMid: getMidpoint(e.touches[0], e.touches[1]),
+        startScale: transform.scale,
+        startTx: transform.tx,
+        startTy: transform.ty,
       };
     }
   };
 
   const handleTouchMove = (e) => {
-    if (e.touches.length === 2 && pinchRef.current) {
-      e.stopPropagation();
+    e.stopPropagation();
+    if (!gestureRef.current) return;
+
+    if (gestureRef.current.type === "pan" && e.touches.length === 1) {
+      const dx = e.touches[0].clientX - gestureRef.current.startX;
+      const dy = e.touches[0].clientY - gestureRef.current.startY;
+      gestureRef.current.moved = Math.abs(dx) > 5 || Math.abs(dy) > 5;
+
+      if (gestureRef.current.scale <= 1) return;
+
+      const { tx, ty } = clampTranslate(
+        gestureRef.current.scale,
+        gestureRef.current.startTx + dx,
+        gestureRef.current.startTy + dy
+      );
+      setTransform((prev) => ({ ...prev, tx, ty }));
+    } else if (gestureRef.current.type === "pinch" && e.touches.length === 2) {
       const newDist = getDistance(e.touches[0], e.touches[1]);
-      const ratio = newDist / pinchRef.current.dist;
-      const newScale = Math.min(Math.max(pinchRef.current.scale * ratio, 1), 4);
+      const ratio = newDist / gestureRef.current.startDist;
+      const newScale = Math.min(Math.max(gestureRef.current.startScale * ratio, 1), 4);
 
-      const rect = imgRef.current?.getBoundingClientRect();
+      const newMid = getMidpoint(e.touches[0], e.touches[1]);
+      const rect = containerRef.current?.getBoundingClientRect();
       if (rect) {
-        const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
-        const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
-        const ox = ((midX - rect.left) / rect.width) * 100;
-        const oy = ((midY - rect.top) / rect.height) * 100;
-        setOrigin({ x: ox, y: oy });
+        const originX = newMid.x - rect.left - rect.width / 2;
+        const originY = newMid.y - rect.top - rect.height / 2;
+        const scaleDiff = newScale / gestureRef.current.startScale;
+        const newTx = originX + (gestureRef.current.startTx - originX) * scaleDiff;
+        const newTy = originY + (gestureRef.current.startTy - originY) * scaleDiff;
+        const { tx, ty } = clampTranslate(newScale, newTx, newTy);
+        setTransform({ scale: newScale, tx, ty });
       }
-
-      setScale(newScale);
     }
   };
 
   const handleTouchEnd = (e) => {
-    if (e.touches.length < 2) {
-      pinchRef.current = null;
-      if (scale < 1.05) resetZoom();
+    e.stopPropagation();
+    if (!gestureRef.current) return;
+
+    if (
+      gestureRef.current.type === "pan" &&
+      gestureRef.current.scale <= 1 &&
+      gestureRef.current.moved
+    ) {
+      const dx = (e.changedTouches[0]?.clientX ?? 0) - gestureRef.current.startX;
+      if (Math.abs(dx) > 40) onSwipe(dx < 0 ? "left" : "right");
     }
+
+    if (transform.scale < 1.05) resetZoom();
+    gestureRef.current = null;
   };
 
-  const handleDoubleTap = (() => {
-    let lastTap = 0;
-    return () => {
-      const now = Date.now();
-      if (now - lastTap < 300) {
-        scale > 1 ? resetZoom() : setScale(2.5);
-      }
-      lastTap = now;
-    };
-  })();
+  const lastTap = useRef(0);
+  const handleClick = () => {
+    const now = Date.now();
+    if (now - lastTap.current < 300) {
+      transform.scale > 1 ? resetZoom() : setTransform({ scale: 2.5, tx: 0, ty: 0 });
+    }
+    lastTap.current = now;
+  };
+
+  const isZoomed = transform.scale > 1;
 
   return (
     <div
-      ref={imgRef}
+      ref={containerRef}
       className={styles.zoomContainer}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      onClick={handleDoubleTap}
+      onClick={handleClick}
+      style={{ cursor: isZoomed ? "grab" : "default" }}
     >
       <Image
         src={src}
@@ -90,18 +146,17 @@ function ZoomableImage({ src, alt }) {
         className={styles.img}
         priority
         style={{
-          transform: `scale(${scale})`,
-          transformOrigin: `${origin.x}% ${origin.y}%`,
-          transition: scale === 1 ? "transform 0.2s ease" : "none",
+          transform: `translate(${transform.tx}px, ${transform.ty}px) scale(${transform.scale})`,
+          transition: isZoomed ? "none" : "transform 0.25s ease",
         }}
+        draggable={false}
       />
     </div>
   );
 }
 
 export default function Lightbox({ images, index, onClose, onNav }) {
-  const touchStart = useRef(null);
-  const isZoomed = useRef(false);
+  const scrollY = useRef(0);
 
   const goPrev = useCallback(() => {
     onNav((prev) => (prev - 1 + images.length) % images.length);
@@ -118,37 +173,35 @@ export default function Lightbox({ images, index, onClose, onNav }) {
       if (e.key === "ArrowRight") goNext();
     };
     window.addEventListener("keydown", handler);
+
+    scrollY.current = window.scrollY;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY.current}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
     document.body.style.overflow = "hidden";
 
     const viewport = document.querySelector("meta[name=viewport]");
-    const original = viewport?.getAttribute("content") || "";
+    const originalViewport = viewport?.getAttribute("content") || "";
     if (viewport) {
       viewport.setAttribute("content", "width=device-width, initial-scale=1, maximum-scale=1");
     }
 
     return () => {
       window.removeEventListener("keydown", handler);
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
       document.body.style.overflow = "";
-      if (viewport && original) viewport.setAttribute("content", original);
+      window.scrollTo(0, scrollY.current);
+      if (viewport && originalViewport) viewport.setAttribute("content", originalViewport);
     };
   }, [onClose, goPrev, goNext]);
 
-  const handleTouchStart = (e) => {
-    if (e.touches.length === 1) {
-      touchStart.current = e.touches[0].clientX;
-    } else {
-      touchStart.current = null;
-    }
-  };
-
-  const handleTouchEnd = (e) => {
-    if (isZoomed.current || touchStart.current === null) return;
-    const diff = touchStart.current - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) {
-      diff > 0 ? goNext() : goPrev();
-    }
-    touchStart.current = null;
-  };
+  const handleSwipe = useCallback((dir) => {
+    dir === "left" ? goNext() : goPrev();
+  }, [goNext, goPrev]);
 
   const current = images[index];
   const isVideo = current.type === "video";
@@ -160,8 +213,6 @@ export default function Lightbox({ images, index, onClose, onNav }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
     >
       <motion.div
         className={styles.content}
@@ -192,6 +243,7 @@ export default function Lightbox({ images, index, onClose, onNav }) {
               <ZoomableImage
                 src={current.src}
                 alt={current.caption || ""}
+                onSwipe={handleSwipe}
               />
             )}
           </motion.div>

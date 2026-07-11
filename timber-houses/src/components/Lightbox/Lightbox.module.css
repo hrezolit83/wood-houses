@@ -31,9 +31,9 @@
   align-items: center;
   justify-content: center;
   touch-action: none;
-  overflow: hidden;
   max-width: 88vw;
   max-height: 78vh;
+  overflow: visible;
 }
 
 .img {
