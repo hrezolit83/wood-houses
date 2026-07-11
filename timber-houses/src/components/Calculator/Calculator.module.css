@@ -206,6 +206,39 @@
   color: var(--color-accent);
 }
 
+/* --- CURRENCY TOGGLE --- */
+.currencyToggle {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.currencyBtn {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+  letter-spacing: 0.5px;
+}
+
+.currencyBtn:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.currencyActive {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background: rgba(212, 175, 55, 0.1);
+}
+
 /* --- RESULT CARD --- */
 .result {
   position: sticky;
@@ -273,11 +306,25 @@
   font-weight: 600;
 }
 
+.rateNote {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
 .resultNote {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.5;
   margin-bottom: 24px;
+}
+
+.disclaimer {
+  margin-top: 16px;
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
 }
 
 .cta {

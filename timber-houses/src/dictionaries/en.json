@@ -179,18 +179,18 @@
     "timberLabel": "Timber Thickness",
     "timberOptions": [
       {
-        "value": "180",
-        "label": "180 mm",
-        "desc": "Standard"
-      },
-      {
         "value": "200",
         "label": "200 mm",
-        "desc": "Enhanced"
+        "desc": "Standard"
       },
       {
         "value": "240",
         "label": "240 mm",
+        "desc": "Enhanced"
+      },
+      {
+        "value": "300",
+        "label": "300 mm",
         "desc": "Premium"
       }
     ],
@@ -214,11 +214,12 @@
     ],
     "resultLabel": "Estimated Cost",
     "resultFrom": "from",
-    "resultCurrency": "$",
-    "resultPerM2": "per m²",
-    "resultNote": "Price is approximate. Exact calculation after consultation.",
+    "timberCostLabel": "Timber (material)",
+    "roofCostLabel": "Roof framing",
+    "resultNote": "Price is approximate. Exact quote — after a free consultation.",
+    "rateNote": "NBU exchange rate:",
     "cta": "Get an Exact Quote",
-    "pricePerM2Label": "Price per m²"
+    "disclaimer": "* Calculation is based on usable area (×0.85 of total). Timber up to 6 m — UAH 45,000/m³, over 6 m — UAH 47,000/m³ (standard up to 6 m assumed). 240 and 300 mm thickness — UAH 51,700/m³. Roof: gable, 20–30° pitch, area factor ×1.3 of house area, timber price UAH 1,320/m². Prices may change."
   },
   "realObject": {
     "label": "Our Real Project",
