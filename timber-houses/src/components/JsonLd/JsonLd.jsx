@@ -98,3 +98,109 @@ export function WebSiteJsonLd({ locale = "uk" }) {
     />
   );
 }
+
+export function ProjectsItemListJsonLd({ projects, locale = "uk", name }) {
+  if (!projects || projects.length === 0) return null;
+
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name,
+    numberOfItems: projects.length,
+    itemListElement: projects.map((project, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "SingleFamilyResidence",
+        name: project.title,
+        url: `${BASE_URL}/${locale}/projects#${project.slug}`,
+        image: `${BASE_URL}${project.image_url}`,
+        ...(project.area
+          ? {
+              floorSize: {
+                "@type": "QuantitativeValue",
+                value: project.area,
+                unitCode: "MTK",
+              },
+            }
+          : {}),
+        ...(project.bedrooms ? { numberOfBedrooms: project.bedrooms } : {}),
+      },
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+export function DesignServiceJsonLd({ pricing, locale = "uk" }) {
+  if (!pricing || !pricing.items || pricing.items.length === 0) return null;
+
+  const unitPrice = (price) => ({
+    "@type": "UnitPriceSpecification",
+    price,
+    priceCurrency: "USD",
+    unitCode: "MTK",
+    referenceQuantity: {
+      "@type": "QuantitativeValue",
+      value: 1,
+      unitCode: "MTK",
+    },
+  });
+
+  const offers = [];
+  for (const item of pricing.items) {
+    offers.push({
+      "@type": "Offer",
+      name: `${item.name} — ${pricing.standard}`,
+      itemOffered: {
+        "@type": "Service",
+        name: item.name,
+        description: item.desc,
+      },
+      priceSpecification: unitPrice(item.standard),
+    });
+    if (item.vip) {
+      offers.push({
+        "@type": "Offer",
+        name: `${item.name} — ${pricing.vip}`,
+        itemOffered: {
+          "@type": "Service",
+          name: item.name,
+          description: item.desc,
+        },
+        priceSpecification: unitPrice(item.vip),
+      });
+    }
+  }
+
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType:
+      locale === "uk"
+        ? "Проєктування будинків з клеєного бруса"
+        : "Glulam timber house design",
+    provider: { "@id": `${BASE_URL}/#organization` },
+    areaServed: {
+      "@type": "Country",
+      name: locale === "uk" ? "Україна" : "Ukraine",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: pricing.heading,
+      itemListElement: offers,
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}

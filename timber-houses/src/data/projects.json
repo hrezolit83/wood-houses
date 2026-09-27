@@ -1,0 +1,202 @@
+[
+  {
+    "title": "Будинок «369-Лісники»",
+    "slug": "369-lisnyky",
+    "area": 89,
+    "images": [
+      "/images/projects/369-lisnyky-renders.jpg",
+      "/images/projects/369-lisnyky-drawing.jpg"
+    ],
+    "image_url": "/images/projects/369-lisnyky-renders.jpg"
+  },
+  {
+    "title": "Будинок «383-Віталій»",
+    "slug": "383-vitaliy",
+    "area": 90,
+    "images": [
+      "/images/projects/383-vitaliy-renders.jpg",
+      "/images/projects/383-vitaliy-drawing.jpg"
+    ],
+    "image_url": "/images/projects/383-vitaliy-renders.jpg"
+  },
+  {
+    "title": "Будинок «415-Верховина 2»",
+    "slug": "415-verhovyna-2",
+    "area": 95,
+    "images": [
+      "/images/projects/415-verhovyna-2-renders.jpg",
+      "/images/projects/415-verhovyna-2-drawing.jpg"
+    ],
+    "image_url": "/images/projects/415-verhovyna-2-renders.jpg"
+  },
+  {
+    "title": "Будинок «442-Серпанок 2»",
+    "slug": "442-serpanok-2",
+    "area": 114,
+    "images": [
+      "/images/projects/442-serpanok-2-renders.jpg",
+      "/images/projects/442-serpanok-2-drawing.jpg"
+    ],
+    "image_url": "/images/projects/442-serpanok-2-renders.jpg"
+  },
+  {
+    "title": "Будинок «428-Тімбер»",
+    "slug": "428-timber",
+    "area": 135,
+    "images": [
+      "/images/projects/428-timber-renders.jpg",
+      "/images/projects/428-timber-drawing.jpg"
+    ],
+    "image_url": "/images/projects/428-timber-renders.jpg"
+  },
+  {
+    "title": "Будинок «408-Odincov»",
+    "slug": "408-odincov",
+    "area": 137,
+    "images": [
+      "/images/projects/408-odincov-renders.jpg",
+      "/images/projects/408-odincov-drawing.jpg"
+    ],
+    "image_url": "/images/projects/408-odincov-renders.jpg"
+  },
+  {
+    "title": "Будинок «396-Круглик»",
+    "slug": "396-kruglyk",
+    "area": 160,
+    "images": [
+      "/images/projects/396-kruglyk-renders.jpg",
+      "/images/projects/396-kruglyk-drawing.jpg"
+    ],
+    "image_url": "/images/projects/396-kruglyk-renders.jpg"
+  },
+  {
+    "title": "Будинок «416-Голандія»",
+    "slug": "416-golandiya",
+    "area": 167,
+    "images": [
+      "/images/projects/416-golandiya-renders.jpg",
+      "/images/projects/416-golandiya-drawing.jpg"
+    ],
+    "image_url": "/images/projects/416-golandiya-renders.jpg"
+  },
+  {
+    "title": "Будинок «363-Верховина»",
+    "slug": "363-verhovyna",
+    "area": 202,
+    "images": [
+      "/images/projects/363-verhovyna-renders.jpg",
+      "/images/projects/363-verhovyna-drawing.jpg"
+    ],
+    "image_url": "/images/projects/363-verhovyna-renders.jpg"
+  },
+  {
+    "title": "Будинок «371-Погреби»",
+    "slug": "371-pogreby",
+    "area": 259,
+    "images": [
+      "/images/projects/371-pogreby-renders.jpg",
+      "/images/projects/371-pogreby-drawing.jpg"
+    ],
+    "image_url": "/images/projects/371-pogreby-renders.jpg"
+  },
+  {
+    "title": "Будинок «435-Боснек»",
+    "slug": "435-bosnek",
+    "area": 235,
+    "images": [
+      "/images/projects/435-bosnek-renders.jpg",
+      "/images/projects/435-bosnek-drawing.jpg"
+    ],
+    "image_url": "/images/projects/435-bosnek-renders.jpg"
+  },
+  {
+    "title": "Будинок «394-Осикове»",
+    "slug": "394-osykove",
+    "area": 256,
+    "images": [
+      "/images/projects/394-osykove-renders.jpg",
+      "/images/projects/394-osykove-drawing.jpg"
+    ],
+    "image_url": "/images/projects/394-osykove-renders.jpg"
+  },
+  {
+    "title": "Будинок «399-Вишеньки»",
+    "slug": "399-vyshenky",
+    "area": 328,
+    "images": [
+      "/images/projects/399-vyshenky-renders.jpg",
+      "/images/projects/399-vyshenky-drawing.jpg"
+    ],
+    "image_url": "/images/projects/399-vyshenky-renders.jpg"
+  },
+  {
+    "title": "Будинок «412-Gold River»",
+    "slug": "412-gold-river",
+    "area": 329,
+    "images": [
+      "/images/projects/412-gold-river-renders.jpg",
+      "/images/projects/412-gold-river-drawing.jpg"
+    ],
+    "image_url": "/images/projects/412-gold-river-renders.jpg"
+  },
+  {
+    "title": "Будинок «411-Дмитрович»",
+    "slug": "411-dmytrovych",
+    "area": 237,
+    "images": [
+      "/images/projects/411-dmytrovych-renders.jpg",
+      "/images/projects/411-dmytrovych-drawing.jpg"
+    ],
+    "image_url": "/images/projects/411-dmytrovych-renders.jpg"
+  },
+  {
+    "title": "Будинок «370-Мліїв»",
+    "slug": "370-mliyiv",
+    "area": 436,
+    "images": [
+      "/images/projects/370-mliyiv-renders.jpg",
+      "/images/projects/370-mliyiv-drawing.jpg"
+    ],
+    "image_url": "/images/projects/370-mliyiv-renders.jpg"
+  },
+  {
+    "title": "Будинок «422-Шале»",
+    "slug": "422-shale",
+    "area": 615,
+    "images": [
+      "/images/projects/422-shale-renders.jpg",
+      "/images/projects/422-shale-drawing.jpg"
+    ],
+    "image_url": "/images/projects/422-shale-renders.jpg"
+  },
+  {
+    "title": "Будинок «402-Villa Marina»",
+    "slug": "402-villa-marina",
+    "area": 764,
+    "images": [
+      "/images/projects/402-villa-marina-renders.jpg",
+      "/images/projects/402-villa-marina-drawing.jpg"
+    ],
+    "image_url": "/images/projects/402-villa-marina-renders.jpg"
+  },
+  {
+    "title": "Будинок «405-Villa Artem»",
+    "slug": "405-villa-artem",
+    "area": 749,
+    "images": [
+      "/images/projects/405-villa-artem-renders.jpg",
+      "/images/projects/405-villa-artem-drawing.jpg"
+    ],
+    "image_url": "/images/projects/405-villa-artem-renders.jpg"
+  },
+  {
+    "title": "Будинок «414-Gold River»",
+    "slug": "414-gold-river",
+    "area": 894,
+    "images": [
+      "/images/projects/414-gold-river-renders.jpg",
+      "/images/projects/414-gold-river-drawing.jpg"
+    ],
+    "image_url": "/images/projects/414-gold-river-renders.jpg"
+  }
+]

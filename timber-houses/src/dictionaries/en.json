@@ -5,10 +5,9 @@
   },
   "header": {
     "nav": {
-      "advantages": "Advantages",
-      "process": "How We Work",
       "calculator": "Calculator",
-      "objects": "Projects",
+      "projects": "Projects",
+      "objects": "Built",
       "blog": "Blog",
       "faq": "FAQ",
       "contacts": "Contact"
@@ -569,5 +568,57 @@
     ],
     "contactHeading": "Data Protection Contact",
     "contactText": "If you have any questions about the processing of your personal data or wish to exercise your rights, please contact us:"
+  },
+  "projectsPage": {
+    "label": "House Projects",
+    "heading": "Ready-Made Glulam House Projects",
+    "subtitle": "Choose a project that fits your needs — from compact cottages to spacious country homes. Every project can be adapted to your wishes.",
+    "area": "Area",
+    "dimensions": "Footprint",
+    "bedrooms": "bedrooms",
+    "bedroom": "bedroom",
+    "noImage": "No photo",
+    "cta": "Calculate cost",
+    "filterAll": "All",
+    "filterSmall": "under 100 m²",
+    "filterMedium": "100–200 m²",
+    "filterLarge": "200+ m²",
+    "pricing": {
+      "label": "Design Pricing",
+      "heading": "Project Design Price List",
+      "subtitle": "All prices are in USD per 1 m² of total house area",
+      "standard": "Standard",
+      "vip": "VIP / Custom",
+      "note": "* Minimum project cost starts from 5,000 UAH. Price may vary depending on architectural complexity.",
+      "items": [
+        {
+          "name": "Foundation Project",
+          "standard": 5,
+          "vip": null,
+          "desc": "Foundation type calculation, reinforcement layouts, material specifications"
+        },
+        {
+          "name": "Structural Project",
+          "standard": 10,
+          "vip": null,
+          "desc": "Structural drawings, timber specifications, floor and roof plans"
+        },
+        {
+          "name": "Architectural (Sketch) Project",
+          "standard": 22,
+          "vip": 40,
+          "desc": "Floor plans, facades, cross-sections, site layout plan"
+        },
+        {
+          "name": "Interior Design Project",
+          "standard": 29,
+          "vip": 35,
+          "desc": "3D visualization, material & furniture selection, specification"
+        }
+      ]
+    },
+    "renders": "Renders",
+    "drawing": "Floor Plan",
+    "loadMore": "Show more"
   }
 }

@@ -15,6 +15,13 @@ export default function sitemap() {
       priority: 1.0,
     });
 
+    routes.push({
+      url: `${BASE_URL}/${locale}/projects`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    });
+
     // Objects
     routes.push({
       url: `${BASE_URL}/${locale}/objects`,

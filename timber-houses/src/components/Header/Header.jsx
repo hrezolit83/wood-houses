@@ -7,9 +7,8 @@ import { trackPhoneClick } from "@/lib/analytics";
 import styles from "./Header.module.css";
 
 const navItems = [
-  { key: "advantages", href: "#advantages" },
-  { key: "process", href: "#process" },
   { key: "calculator", href: "#calculator" },
+  { key: "projects", href: "/projects", isPage: true },
   { key: "objects", href: "/objects", isPage: true },
   { key: "blog", href: "/blog", isPage: true },
   { key: "faq", href: "#faq" },
