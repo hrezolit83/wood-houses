@@ -1,7 +1,5 @@
-"use client";
-
-import { usePathname } from "next/navigation";
-import styles from "./not-found.module.css";
+import { headers } from "next/headers";
+import styles from "../not-found.module.css";
 
 const COPY = {
   uk: {
@@ -16,9 +14,11 @@ const COPY = {
   },
 };
 
-export default function NotFound() {
-  const pathname = usePathname() || "";
-  const locale = pathname.startsWith("/en") ? "en" : "uk";
+export default async function NotFound() {
+  const requestHeaders = await headers();
+  const locale = (requestHeaders.get("x-pathname") || "").startsWith("/en")
+    ? "en"
+    : "uk";
   const t = COPY[locale];
 
   return (

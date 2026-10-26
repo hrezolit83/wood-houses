@@ -26,7 +26,7 @@ const PACKAGE_MULTIPLIER = {
 
 const NBU_FALLBACK = 44.5;
 
-export default function Calculator({ t }) {
+export default function Calculator({ t, locale }) {
   const [area,    setArea]    = useState(120);
   const [floors,  setFloors]  = useState(1);
   const [timber,  setTimber]  = useState("200");
@@ -65,11 +65,13 @@ export default function Calculator({ t }) {
     };
   }, [area, floors, timber, pkg]);
 
+  const numberLocale = locale === "en" ? "en-US" : "uk-UA";
+
   const fmt = (n) => {
     if (currency === "usd") {
-      return "$\u00a0" + Math.round(n / usdRate).toLocaleString("uk-UA");
+      return "$\u00a0" + Math.round(n / usdRate).toLocaleString(numberLocale);
     }
-    return "₴\u00a0" + n.toLocaleString("uk-UA");
+    return "₴\u00a0" + n.toLocaleString(numberLocale);
   };
 
   const scrollToLead = () => {

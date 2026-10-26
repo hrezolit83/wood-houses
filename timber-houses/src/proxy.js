@@ -21,7 +21,11 @@ export function proxy(request) {
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  if (hasLocale) return;
+  if (hasLocale) {
+    const headers = new Headers(request.headers);
+    headers.set("x-pathname", pathname);
+    return NextResponse.next({ request: { headers } });
+  }
 
   // Detect preferred locale from Accept-Language header
   const acceptLang = request.headers.get("accept-language") || "";

@@ -19,7 +19,8 @@ export function LocalBusinessJsonLd({ locale = "uk" }) {
     address: {
       "@type": "PostalAddress",
       addressCountry: "UA",
-      addressLocality: locale === "uk" ? "Київ" : "Kyiv",
+      addressRegion: locale === "uk" ? "Рівненська область" : "Rivne Oblast",
+      addressLocality: locale === "uk" ? "Рівне" : "Rivne",
     },
     areaServed: {
       "@type": "Country",

@@ -31,7 +31,7 @@ export default async function HomePage({ params }) {
         <USP t={t.usp} locale={locale} />
         <Stats t={t.stats} />
         <Process t={t.process} />
-        <Calculator t={t.calculator} />
+        <Calculator t={t.calculator} locale={locale} />
         <RealObject t={t.realObject} />
         <FAQ t={t.faq} />
         <LeadForm t={t.leadForm} />
