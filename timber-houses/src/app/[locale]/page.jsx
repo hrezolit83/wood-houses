@@ -27,8 +27,8 @@ export default async function HomePage({ params }) {
       <FAQPageJsonLd items={t.faq?.items} />
       <Header t={t.header} locale={locale} />
       <main>
-        <Hero t={t.hero} />
-        <USP t={t.usp} />
+        <Hero t={t.hero} locale={locale} />
+        <USP t={t.usp} locale={locale} />
         <Stats t={t.stats} />
         <Process t={t.process} />
         <Calculator t={t.calculator} />
@@ -37,7 +37,7 @@ export default async function HomePage({ params }) {
         <LeadForm t={t.leadForm} />
       </main>
       <Footer t={t.footer} locale={locale} />
-      <FloatingButtons />
+      <FloatingButtons locale={locale} />
     </>
   );
 }

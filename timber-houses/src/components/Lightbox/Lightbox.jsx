@@ -5,6 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import styles from "./Lightbox.module.css";
 
+const LABELS = {
+  uk: { close: "Закрити", prev: "Попереднє", next: "Наступне", slide: "Слайд" },
+  en: { close: "Close", prev: "Previous", next: "Next", slide: "Slide" },
+};
+
 function getDistance(t1, t2) {
   const dx = t1.clientX - t2.clientX;
   const dy = t1.clientY - t2.clientY;
@@ -23,10 +28,6 @@ function ZoomableImage({ src, alt, onSwipe }) {
   const resetZoom = useCallback(() => {
     setTransform({ scale: 1, tx: 0, ty: 0 });
   }, []);
-
-  useEffect(() => {
-    resetZoom();
-  }, [src, resetZoom]);
 
   const clampTranslate = (scale, tx, ty) => {
     if (scale <= 1) return { tx: 0, ty: 0 };
@@ -155,7 +156,8 @@ function ZoomableImage({ src, alt, onSwipe }) {
   );
 }
 
-export default function Lightbox({ images, index, onClose, onNav }) {
+export default function Lightbox({ images, index, onClose, onNav, locale = "uk" }) {
+  const labels = LABELS[locale] || LABELS.uk;
   const scrollY = useRef(0);
 
   const goPrev = useCallback(() => {
@@ -241,6 +243,7 @@ export default function Lightbox({ images, index, onClose, onNav }) {
               />
             ) : (
               <ZoomableImage
+                key={current.src}
                 src={current.src}
                 alt={current.caption || ""}
                 onSwipe={handleSwipe}
@@ -259,7 +262,7 @@ export default function Lightbox({ images, index, onClose, onNav }) {
           </div>
         )}
 
-        <button className={styles.close} onClick={onClose} aria-label="Закрити">
+        <button className={styles.close} onClick={onClose} aria-label={labels.close}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="18" y1="6" x2="6" y2="18" />
             <line x1="6" y1="6" x2="18" y2="18" />
@@ -268,12 +271,12 @@ export default function Lightbox({ images, index, onClose, onNav }) {
 
         {images.length > 1 && (
           <>
-            <button className={`${styles.nav} ${styles.navPrev}`} onClick={goPrev} aria-label="Попереднє">
+            <button className={`${styles.nav} ${styles.navPrev}`} onClick={goPrev} aria-label={labels.prev}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="15 18 9 12 15 6" />
               </svg>
             </button>
-            <button className={`${styles.nav} ${styles.navNext}`} onClick={goNext} aria-label="Наступне">
+            <button className={`${styles.nav} ${styles.navNext}`} onClick={goNext} aria-label={labels.next}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="9 18 15 12 9 6" />
               </svg>
@@ -289,7 +292,7 @@ export default function Lightbox({ images, index, onClose, onNav }) {
               key={i}
               className={`${styles.dot} ${i === index ? styles.dotActive : ""}`}
               onClick={() => onNav(i)}
-              aria-label={`Слайд ${i + 1}`}
+              aria-label={`${labels.slide} ${i + 1}`}
             />
           ))}
         </div>

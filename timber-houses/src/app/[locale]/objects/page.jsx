@@ -30,11 +30,11 @@ export default async function Objects({ params }) {
     <>
       <Header t={t.header} locale={locale} />
       <main>
-        <ObjectsPage t={t.objects} />
+        <ObjectsPage t={t.objects} locale={locale} />
         <LeadForm t={t.leadForm} />
       </main>
       <Footer t={t.footer} locale={locale} />
-      <FloatingButtons />
+      <FloatingButtons locale={locale} />
     </>
   );
 }

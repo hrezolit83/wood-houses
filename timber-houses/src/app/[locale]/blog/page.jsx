@@ -38,7 +38,7 @@ export default async function BlogPage({ params }) {
         <BlogList posts={posts} t={t.blog} locale={locale} />
       </main>
       <Footer t={t.footer} locale={locale} />
-      <FloatingButtons />
+      <FloatingButtons locale={locale} />
     </>
   );
 }

@@ -577,6 +577,8 @@
     "dimensions": "Footprint",
     "bedrooms": "bedrooms",
     "bedroom": "bedroom",
+    "areaUnit": "m²",
+    "lengthUnit": "m",
     "noImage": "No photo",
     "cta": "Calculate cost",
     "filterAll": "All",

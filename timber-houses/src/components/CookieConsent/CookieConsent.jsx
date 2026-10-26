@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import styles from "./CookieConsent.module.css";
 
 const STORAGE_KEY = "th_cookie_consent_v1";
@@ -34,6 +34,23 @@ const COPY = {
   },
 };
 
+function subscribe(onChange) {
+  window.addEventListener("storage", onChange);
+  return () => window.removeEventListener("storage", onChange);
+}
+
+function readStored() {
+  try {
+    return localStorage.getItem(STORAGE_KEY);
+  } catch {
+    return null;
+  }
+}
+
+function readStoredOnServer() {
+  return null;
+}
+
 function applyConsent(consent) {
   if (typeof window === "undefined") return;
   window.dataLayer = window.dataLayer || [];
@@ -50,31 +67,27 @@ function applyConsent(consent) {
 
 export default function CookieConsent({ locale = "uk" }) {
   const t = COPY[locale] || COPY.uk;
-  const [visible, setVisible] = useState(false);
+  const stored = useSyncExternalStore(subscribe, readStored, readStoredOnServer);
+  const [dismissed, setDismissed] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [analytics, setAnalytics] = useState(true);
   const [marketing, setMarketing] = useState(true);
 
+  const visible = !stored && !dismissed;
+
   useEffect(() => {
+    if (!stored) return;
     try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (!stored) {
-        setVisible(true);
-      } else {
-        const parsed = JSON.parse(stored);
-        applyConsent(parsed);
-      }
-    } catch {
-      setVisible(true);
-    }
-  }, []);
+      applyConsent(JSON.parse(stored));
+    } catch {}
+  }, [stored]);
 
   const save = (consent) => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
     } catch {}
     applyConsent(consent);
-    setVisible(false);
+    setDismissed(true);
   };
 
   const handleAcceptAll = () => save({ analytics: true, marketing: true });

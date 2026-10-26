@@ -18,7 +18,7 @@ const slides = [
 
 const INTERVAL = 5000;
 
-export default function Hero({ t }) {
+export default function Hero({ t, locale }) {
   const [index, setIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -168,6 +168,7 @@ export default function Hero({ t }) {
           index={index}
           onClose={() => setLightboxOpen(false)}
           onNav={setIndex}
+          locale={locale}
         />
       )}
     </>

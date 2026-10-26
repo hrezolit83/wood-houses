@@ -59,7 +59,7 @@ function ProjectCard({ project, index, onImageClick }) {
   );
 }
 
-function ImageGallery({ images }) {
+function ImageGallery({ images, locale }) {
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
   return (
@@ -93,13 +93,14 @@ function ImageGallery({ images }) {
           index={lightboxIndex}
           onClose={() => setLightboxIndex(null)}
           onNav={setLightboxIndex}
+          locale={locale}
         />
       )}
     </>
   );
 }
 
-export default function ObjectsPage({ t }) {
+export default function ObjectsPage({ t, locale }) {
   const [projectLightbox, setProjectLightbox] = useState(null);
 
   const projectImages = t.projects.map((p) => ({ src: p.image, caption: p.title }));
@@ -142,6 +143,7 @@ export default function ObjectsPage({ t }) {
           index={projectLightbox}
           onClose={() => setProjectLightbox(null)}
           onNav={setProjectLightbox}
+          locale={locale}
         />
       )}
 
@@ -151,7 +153,7 @@ export default function ObjectsPage({ t }) {
             <p className={styles.label}>{t.construction.label}</p>
             <h2 className={styles.sectionHeading}>{t.construction.heading}</h2>
           </div>
-          <ImageGallery images={t.construction.images} />
+          <ImageGallery images={t.construction.images} locale={locale} />
         </Container>
       </section>
 
@@ -161,7 +163,7 @@ export default function ObjectsPage({ t }) {
             <p className={styles.label}>{t.production.label}</p>
             <h2 className={styles.sectionHeading}>{t.production.heading}</h2>
           </div>
-          <ImageGallery images={t.production.images} />
+          <ImageGallery images={t.production.images} locale={locale} />
         </Container>
       </section>
 

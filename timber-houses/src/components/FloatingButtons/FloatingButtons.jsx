@@ -4,7 +4,9 @@ import { useState, useEffect } from "react";
 import { trackPhoneClick } from "@/lib/analytics";
 import styles from "./FloatingButtons.module.css";
 
-export default function FloatingButtons() {
+const CALL_LABEL = { uk: "Зателефонувати", en: "Call" };
+
+export default function FloatingButtons({ locale = "uk" }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -38,7 +40,7 @@ export default function FloatingButtons() {
       <a
         href="tel:+380636485920"
         className={`${styles.btn} ${styles.phoneBtn}`}
-        aria-label="Зателефонувати"
+        aria-label={CALL_LABEL[locale] || CALL_LABEL.uk}
         onClick={() => trackPhoneClick("floating_btn")}
       >
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

@@ -5,6 +5,7 @@ import LeadForm from "@/components/LeadForm/LeadForm";
 import Footer from "@/components/Footer/Footer";
 import FloatingButtons from "@/components/FloatingButtons/FloatingButtons";
 import projects from "@/data/projects.json";
+import { localizeProjects } from "@/lib/projects";
 import {
   LocalBusinessJsonLd,
   ProjectsItemListJsonLd,
@@ -31,23 +32,24 @@ export async function generateMetadata({ params }) {
 export default async function Projects({ params }) {
   const { locale } = await params;
   const t = await getDictionary(locale);
+  const items = localizeProjects(projects, locale);
 
   return (
     <>
       <LocalBusinessJsonLd locale={locale} />
       <ProjectsItemListJsonLd
-        projects={projects}
+        projects={items}
         locale={locale}
         name={t.projectsPage.heading}
       />
       <DesignServiceJsonLd pricing={t.projectsPage.pricing} locale={locale} />
       <Header t={t.header} locale={locale} />
       <main>
-        <ProjectsPage t={t.projectsPage} projects={projects} />
+        <ProjectsPage t={t.projectsPage} projects={items} locale={locale} />
         <LeadForm t={t.leadForm} />
       </main>
       <Footer t={t.footer} locale={locale} />
-      <FloatingButtons />
+      <FloatingButtons locale={locale} />
     </>
   );
 }

@@ -51,7 +51,7 @@ export default async function BlogPostPage({ params }) {
         <BlogArticle post={post} t={t.blog} locale={locale} />
       </main>
       <Footer t={t.footer} locale={locale} />
-      <FloatingButtons />
+      <FloatingButtons locale={locale} />
     </>
   );
 }

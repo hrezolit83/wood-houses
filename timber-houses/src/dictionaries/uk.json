@@ -577,6 +577,8 @@
     "dimensions": "Габарит",
     "bedrooms": "спалень",
     "bedroom": "спальня",
+    "areaUnit": "м²",
+    "lengthUnit": "м",
     "noImage": "Фото відсутнє",
     "cta": "Розрахувати вартість",
     "filterAll": "Всі",

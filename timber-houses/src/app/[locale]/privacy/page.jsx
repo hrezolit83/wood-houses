@@ -85,7 +85,7 @@ export default async function PrivacyPage({ params }) {
         </Container>
       </main>
       <Footer t={t.footer} locale={locale} />
-      <FloatingButtons />
+      <FloatingButtons locale={locale} />
     </>
   );
 }

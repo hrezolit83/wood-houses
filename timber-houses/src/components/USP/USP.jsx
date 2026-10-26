@@ -34,7 +34,7 @@ const icons = [
   </svg>,
 ];
 
-export default function USP({ t }) {
+export default function USP({ t, locale }) {
   const [openIndex, setOpenIndex] = useState(null);
   const [lightbox, setLightbox] = useState(null);
   const cardRefs = useRef([]);
@@ -185,6 +185,7 @@ export default function USP({ t }) {
             ...prev,
             index: typeof val === "function" ? val(prev.index) : val,
           }))}
+          locale={locale}
         />
       )}
     </section>

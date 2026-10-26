@@ -33,7 +33,7 @@ function ProjectCard({ project, index, onOpen, t }) {
           <div className={styles.noImg}>{t.noImage}</div>
         )}
         {project.area && (
-          <div className={styles.areaBadge}>{project.area} м²</div>
+          <div className={styles.areaBadge}>{project.area} {t.areaUnit}</div>
         )}
         {project.images && project.images.length > 1 && (
           <div className={styles.imgCount}>
@@ -58,7 +58,7 @@ function ProjectCard({ project, index, onOpen, t }) {
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="3" y="3" width="18" height="18" rx="2" />
               </svg>
-              {project.dimensions} м
+              {project.dimensions} {t.lengthUnit}
             </span>
           )}
           {project.bedrooms && (
@@ -77,7 +77,7 @@ function ProjectCard({ project, index, onOpen, t }) {
   );
 }
 
-function PricingSection({ pricing }) {
+function PricingSection({ pricing, areaUnit }) {
   return (
     <section className={styles.pricingSection}>
       <Container>
@@ -107,12 +107,12 @@ function PricingSection({ pricing }) {
               <div className={styles.pricingPrices}>
                 <div className={styles.priceRow}>
                   <span className={styles.priceLabel}>{pricing.standard}</span>
-                  <span className={styles.priceValue}>${item.standard}<span className={styles.pricePer}>/м²</span></span>
+                  <span className={styles.priceValue}>${item.standard}<span className={styles.pricePer}>/{areaUnit}</span></span>
                 </div>
                 {item.vip && (
                   <div className={`${styles.priceRow} ${styles.priceRowVip}`}>
                     <span className={styles.priceLabel}>{pricing.vip}</span>
-                    <span className={styles.priceValue}>${item.vip}<span className={styles.pricePer}>/м²</span></span>
+                    <span className={styles.priceValue}>${item.vip}<span className={styles.pricePer}>/{areaUnit}</span></span>
                   </div>
                 )}
               </div>
@@ -125,7 +125,7 @@ function PricingSection({ pricing }) {
   );
 }
 
-export default function ProjectsPage({ t, projects }) {
+export default function ProjectsPage({ t, projects, locale }) {
   const [filter, setFilter] = useState("all");
   const [visible, setVisible] = useState(PAGE_SIZE);
   const [lightbox, setLightbox] = useState(null);
@@ -150,7 +150,7 @@ export default function ProjectsPage({ t, projects }) {
     const p = lightbox.project;
     return (p.images || []).map((src, i) => ({
       src,
-      caption: `${p.title}${p.area ? ` · ${p.area} м²` : ""} — ${i === 0 ? t.renders : t.drawing}`,
+      caption: `${p.title}${p.area ? ` · ${p.area} ${t.areaUnit}` : ""} — ${i === 0 ? t.renders : t.drawing}`,
     }));
   }, [lightbox, t]);
 
@@ -217,11 +217,12 @@ export default function ProjectsPage({ t, projects }) {
           images={lightboxImages}
           index={lightbox.imgIndex}
           onClose={() => setLightbox(null)}
+          locale={locale}
           onNav={(idx) => setLightbox((prev) => ({ ...prev, imgIndex: typeof idx === "function" ? idx(prev.imgIndex) : idx }))}
         />
       )}
 
-      <PricingSection pricing={t.pricing} />
+      <PricingSection pricing={t.pricing} areaUnit={t.areaUnit} />
     </div>
   );
 }
